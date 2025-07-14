@@ -1,0 +1,171 @@
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
+import LocalParkingIcon from "@mui/icons-material/LocalParking";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import {
+  Box,
+  Button,
+  Container,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
+import React from "react";
+
+
+const locationData = {
+  title: "황토마루 위치 안내",
+  sections: [
+    {
+      icon: <LocationOnIcon />,
+      label: "주소",
+      content: "부산 기장군 정관읍 병산1길 74-18 황토마루",
+    },
+    {
+      icon: <DirectionsTransitIcon />,
+      label: "대중교통",
+      content: "버스타고 못갈거같은데..",
+    },
+    {
+      icon: <LocalParkingIcon />,
+      label: "주차",
+      content: "매장 앞 넉넉한 주차 공간이 마련되어 있어 차량 이용이 편리합니다.",
+    },
+    {
+      icon: <AccessTimeIcon />,
+      label: "영업시간",
+      content:
+        `월, 화: 정기휴무 (매주 월, 화요일)\n` +
+        `수, 목, 금: 11:30 - 21:00 (브레이크타임 15:30 - 16:30)\n` +
+        `토, 일: 11:00 - 21:00\n` +
+        `라스트오더: 19:30`,
+    },
+  ],
+};
+
+export const LocationSection = () => {
+  return (
+    <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
+      <Container maxWidth="xl">
+        <Box sx={{ position: "relative" }}>
+          <Typography
+            variant="h4"
+            component="h2"
+            align="center"
+            color="#333333"
+            sx={{ mb: 4, fontWeight: 600 }}
+          >
+            오시는 길
+          </Typography>
+
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            sx={{ width: "100%", justifyContent: "center" }}
+          >
+            {/* 네이버 지도 iframe */}
+            <Box
+              component="iframe"
+              src="https://map.naver.com/v5/entry/place/11605363?c=13.87,0,0,0,dh"
+              sx={{
+                width: { xs: "100%", md: "50%" },
+                height: { xs: 300, md: 400 },
+                border: 0,
+                borderRadius: 2,
+              }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
+            {/* 위치 정보 카드 */}
+            <Paper
+              elevation={2}
+              sx={{
+                width: { xs: "100%", md: "50%" },
+                borderRadius: "16px",
+                p: 4,
+                overflow: "hidden",
+              }}
+            >
+              <Typography
+                variant="h6"
+                color="primary.dark"
+                sx={{
+                  mb: 3,
+                  fontFamily: "Gowun Batang, serif",
+                  fontWeight: 700,
+                }}
+              >
+                {locationData.title}
+              </Typography>
+
+              <Stack spacing={3}>
+                {locationData.sections.map((section, index) => (
+                  <Stack key={index} direction="row" spacing={2}>
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        backgroundColor: "rgba(180, 83, 9, 0.1)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {section.icon}
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="subtitle1"
+                        color="#333333"
+                        sx={{
+                          fontFamily: "Hahmlet, serif",
+                          fontWeight: 500,
+                        }}
+                      >
+                        {section.label}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="text.secondary"
+                        sx={{
+                          fontFamily: "Hahmlet, serif",
+                          whiteSpace: "pre-line",
+                        }}
+                      >
+                        {section.content}
+                      </Typography>
+                    </Box>
+                  </Stack>
+                ))}
+              </Stack>
+
+              <Button
+                variant="contained"
+                href="https://map.naver.com/v5/entry/place/11605363"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  mt: 4,
+                  backgroundColor: "#a75e2b",
+                  "&:hover": {
+                    backgroundColor: "#8a4d23",
+                  },
+                  px: 3,
+                  py: 1.5,
+                  borderRadius: 2,
+                }}
+              >
+                네이버 지도에서 길찾기
+              </Button>
+            </Paper>
+          </Stack>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+export default LocationSection;
