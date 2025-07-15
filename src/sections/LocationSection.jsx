@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DirectionsTransitIcon from "@mui/icons-material/DirectionsTransit";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
@@ -10,8 +11,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
-
 
 const locationData = {
   title: "황토마루 위치 안내",
@@ -20,11 +19,6 @@ const locationData = {
       icon: <LocationOnIcon />,
       label: "주소",
       content: "부산 기장군 정관읍 병산1길 74-18 황토마루",
-    },
-    {
-      icon: <DirectionsTransitIcon />,
-      label: "대중교통",
-      content: "버스타고 못갈거같은데..",
     },
     {
       icon: <LocalParkingIcon />,
@@ -44,6 +38,31 @@ const locationData = {
 };
 
 export const LocationSection = () => {
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=ez5rqxy2k6"; // ← 여기에 본인 client ID 넣기
+    script.async = true;
+    script.onload = () => {
+      const location = new window.naver.maps.LatLng(35.34236, 129.19363); // 황토마루 좌표
+      const map = new window.naver.maps.Map(mapRef.current, {
+        center: location,
+        zoom: 17,
+        mapTypeId: window.naver.maps.MapTypeId.NORMAL, // ✅ 도로명 나옴
+      });
+
+      new window.naver.maps.Marker({
+        position: location,
+        map,
+        title: "황토마루",
+      });
+    };
+
+    document.head.appendChild(script);
+  }, []);
+
   return (
     <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
       <Container maxWidth="xl">
@@ -61,21 +80,18 @@ export const LocationSection = () => {
           <Stack
             direction={{ xs: "column", md: "row" }}
             spacing={2}
+            alignItems="stretch"
             sx={{ width: "100%", justifyContent: "center" }}
           >
-            {/* 네이버 지도 iframe */}
+            {/* ✅ 지도 삽입된 박스 */}
             <Box
-              component="iframe"
-              src="https://map.naver.com/v5/entry/place/11605363?c=13.87,0,0,0,dh"
+              ref={mapRef}
               sx={{
                 width: { xs: "100%", md: "50%" },
-                height: { xs: 300, md: 400 },
-                border: 0,
                 borderRadius: 2,
+                overflow: "hidden",
+                flex: 1,
               }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             />
 
             {/* 위치 정보 카드 */}
@@ -86,6 +102,7 @@ export const LocationSection = () => {
                 borderRadius: "16px",
                 p: 4,
                 overflow: "hidden",
+                flex: 1,
               }}
             >
               <Typography
