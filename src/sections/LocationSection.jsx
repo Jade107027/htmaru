@@ -49,7 +49,7 @@ export const LocationSection = () => {
       const location = new window.naver.maps.LatLng(35.34236, 129.19363); // 황토마루 좌표
       const map = new window.naver.maps.Map(mapRef.current, {
         center: location,
-        zoom: 17,
+        zoom: 12,
         mapTypeId: window.naver.maps.MapTypeId.NORMAL, // ✅ 도로명 나옴
       });
 

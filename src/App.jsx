@@ -15,6 +15,8 @@ import LocationSection from "./sections/LocationSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReservationPage from "./pages/ReservationPage";
+import AboutPage from "./pages/AboutPage";
+
 
 function App() {
   return (
@@ -62,6 +64,15 @@ function App() {
             element={
               <Frame>
                 <ReservationPage />
+              </Frame>
+            }
+          />
+
+          <Route
+            path="/about"
+            element={
+              <Frame>
+                <AboutPage />
               </Frame>
             }
           />

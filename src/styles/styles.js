@@ -223,7 +223,7 @@ export const heroStyles = {
     position: "relative",
     width: "100%",
     height: "960px",
-    backgroundImage: "url(images/image1.jpg)",
+    backgroundImage: "url(images/image3.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
