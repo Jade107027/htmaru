@@ -1,12 +1,14 @@
+// MenuLayout.jsx
 import React, { useState } from "react";
 import {
   Box,
   Typography,
   Stack,
   IconButton,
-  Chip,
   Button,
   useMediaQuery,
+  Paper,
+  Container,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
@@ -24,13 +26,7 @@ const galleryImages = [
 
 const MenuLayout = ({ showAllMenuButton = false }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
-  const [activeCategory, setActiveCategory] = useState(1);
   const isMobile = useMediaQuery("(max-width:600px)");
-
-  const menuCategories = [
-    { id: 1, label: "고기뷔페" },
-    { id: 2, label: "브런치" },
-  ];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
@@ -56,80 +52,30 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
       <Typography
         variant="h4"
         align="center"
-        sx={{ mb: 6, fontWeight: "bold", color: "#1f1f1f" }}
+        sx={{ mb: 3, fontWeight: "bold", color: "#1f1f1f" }}
       >
         황토마루 메뉴
       </Typography>
 
-      {/* 카테고리 버튼 */}
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 6 }}>
-        <Box
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 3,
-            px: 1,
-            py: 0.5,
-            backgroundColor: "white",
-            borderRadius: "24px",
-            boxShadow: "0px 1px 2px rgba(0,0,0,0.05)",
-          }}
-        >
-          {menuCategories.map((category) => (
-            <Box key={category.id}>
-              {activeCategory === category.id ? (
-                <Chip
-                  label={category.label}
-                  sx={{
-                    backgroundColor: "#5c3a21",
-                    color: "white",
-                    px: 3,
-                    py: 1,
-                    fontSize: "16px",
-                    fontWeight: "normal",
-                    "&:hover": {
-                      backgroundColor: "#5c3a21",
-                    },
-                  }}
-                />
-              ) : (
-                <Button
-                  onClick={() => setActiveCategory(category.id)}
-                  sx={{
-                    color: "#6b7280",
-                    fontSize: "16px",
-                    fontWeight: "normal",
-                    textTransform: "none",
-                    minWidth: "auto",
-                    px: 3,
-                    py: 1,
-                  }}
-                >
-                  {category.label}
-                </Button>
-              )}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      {/* 고기뷔페 or 브런치 메뉴 표시 */}
-      {activeCategory === 1 ? (
-        <Box sx={{ bgcolor: "white", py: 8, px: 2 }}>
-          <Box sx={{ maxWidth: "1200px", mx: "auto" }}>
+      {/* 고기뷔페 안내 */}
+      <Box component="section" py={6} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
+        <Container maxWidth="xl">
+          <Box sx={{ position: "relative" }}>
             <Typography
-              variant="h5"
+              variant="h4"
+              component="h2"
               align="center"
-              sx={{ mb: 6, fontWeight: "bold", color: "#333" }}
+              color="#333333"
+              sx={{ mb: 4, fontWeight: 600 }}
             >
-              고기뷔페 안내
+              프미리엄 고기뷔페 안내
             </Typography>
 
             <Stack
               direction={{ xs: "column", md: "row" }}
-              spacing={4}
+              spacing={2}
               alignItems="stretch"
-              justifyContent="center"
+              sx={{ width: "100%", justifyContent: "center" }}
             >
               {[
                 {
@@ -142,88 +88,93 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                 {
                   title: "주중",
                   desc: "정통 한식 BBQ / 샐러드 / 찬 음식 / 따뜻한 음식 / 반찬 / 소스 / 아이스크림 및 커피 포함",
-                  time: "수–금 11:30 - 21:00 (라스트오더 19:30)",
-                  break: "브레이크타임 15:30 - 16:30",
+                  time: "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
                   price: "₩31,800",
                 },
-              ].map((menu, idx) => (
-                <Box
-                  key={idx}
+              ].map((item, index) => (
+                <Paper
+                  key={index}
+                  elevation={2}
                   sx={{
-                    flex: 1,
+                    width: { xs: "100%", md: "50%" },
+                    borderRadius: "16px",
                     p: 4,
-                    bgcolor: "#fcf7f2",
-                    borderRadius: 3,
+                    overflow: "hidden",
+                    flex: 1,
+                    bgcolor: "white",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
+                    minHeight: 420,
                   }}
                 >
-                  <Typography sx={{ fontSize: "30px", fontWeight: "bold", color: "#b45309" }}>
-                    {menu.title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "20px",
-                      color: "#333",
-                      fontFamily: "Hahmlet-Regular, Helvetica, sans-serif",
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {menu.desc}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "18px",
-                      color: "#333",
-                      whiteSpace: "pre-line",
-                      mt: 1,
-                    }}
-                  >
-                    {menu.time}
-                    {menu.break ? `\n${menu.break}` : ""}
-                  </Typography>
-                  {menu.additional && (
+                  <Box>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: "bold",
+                        mb: 2,
+                        color: "#b45309",
+                        fontSize: "28px",
+                        fontFamily: "Hahmlet-Regular, Helvetica",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontSize: "18px",
+                        color: "#333",
+                        fontFamily: "Hahmlet-Regular, Helvetica",
+                        lineHeight: 1.6,
+                        mb: 2,
+                      }}
+                    >
+                      {item.desc}
+                    </Typography>
+
                     <Typography
                       sx={{
                         fontSize: "16px",
-                        color: "#777",
+                        color: "#333",
                         whiteSpace: "pre-line",
-                        mt: 1.5,
+                        mb: item.additional ? 1.5 : 2,
                       }}
                     >
-                      {menu.additional}
+                      {item.time}
                     </Typography>
-                  )}
+
+                    {item.additional && (
+                      <Typography
+                        sx={{
+                          fontSize: "15px",
+                          color: "#777",
+                          whiteSpace: "pre-line",
+                          mb: 2,
+                        }}
+                      >
+                        {item.additional}
+                      </Typography>
+                    )}
+                  </Box>
+
                   <Typography
                     sx={{
                       fontSize: "24px",
                       fontWeight: "bold",
                       color: "#b45309",
-                      mt: 2,
+                      mt: "auto",
                     }}
                   >
-                    {menu.price}
+                    {item.price}
                   </Typography>
-                </Box>
+                </Paper>
               ))}
             </Stack>
           </Box>
-        </Box>
-      ) : (
-        <Box sx={{ py: 8, px: 2, bgcolor: "white" }}>
-          <Typography
-            variant="h5"
-            align="center"
-            sx={{ mb: 4, fontWeight: "bold", color: "#b45309" }}
-          >
-            브런치 메뉴는 현재 준비 중입니다
-          </Typography>
-          <Typography align="center" sx={{ color: "#999" }}>
-            곧 더 다양한 메뉴로 찾아뵙겠습니다.
-          </Typography>
-        </Box>
-      )}
+        </Container>
+      </Box>
 
       {/* 메뉴 갤러리 */}
       <Box sx={{ mt: 10 }}>

@@ -7,16 +7,18 @@ import theme from "./theme";
 
 import Frame from "./Frame";
 import MenuPage from "./pages/MenuPage";
-import LocationPage from "./pages/LocationPage"; // ← 이거 추가!
+import LocationPage from "./pages/LocationPage";
 import HeroSection from "./sections/HeroSection";
 import MenuSection from "./sections/MenuSection";
 import ReservationSection from "./sections/ReservationSection";
 import LocationSection from "./sections/LocationSection";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import ReservationPage from "./pages/ReservationPage";
 import AboutPage from "./pages/AboutPage";
+import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
@@ -39,7 +41,7 @@ function App() {
             }
           />
 
-          {/* 메뉴 전용 페이지 */}
+          {/* 메뉴 페이지 */}
           <Route
             path="/menupage"
             element={
@@ -49,7 +51,7 @@ function App() {
             }
           />
 
-          {/* 오시는 길 전용 페이지 */}
+          {/* 오시는 길 */}
           <Route
             path="/location"
             element={
@@ -59,6 +61,7 @@ function App() {
             }
           />
 
+          {/* 예약하기 */}
           <Route
             path="/reservation"
             element={
@@ -68,11 +71,32 @@ function App() {
             }
           />
 
+          {/* 매장소개 */}
           <Route
             path="/about"
             element={
               <Frame>
                 <AboutPage />
+              </Frame>
+            }
+          />
+
+          {/* 어드민 로그인 */}
+          <Route
+            path="/admin-login"
+            element={
+              <Frame>
+                <LoginPage />
+              </Frame>
+            }
+          />
+
+          {/* 관리자 페이지 */}
+          <Route
+            path="/admin"
+            element={
+              <Frame>
+                <AdminPage />
               </Frame>
             }
           />

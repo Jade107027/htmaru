@@ -15,14 +15,14 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import React from "react";
+import { Link } from "react-router-dom";
 import { footerStyles as styles } from "../styles/styles";
 
 const navigationLinks = ["매장소개", "메뉴", "예약하기", "오시는길"];
 
 const contactInfo = [
-  { icon: Phone, text: "02-123-4567" },
-  { icon: Email, text: "info@hwangtomaru.com" },
-  { icon: LocationOn, text: "서울시 강남구 테헤란로 123" },
+  { icon: Phone, text: "051-728-7200" },
+  { icon: LocationOn, text: "부산시 기장군 정관면 병산1길 74-18" },
 ];
 
 const socialIcons = [Facebook, Instagram, Twitter, YouTube];
@@ -82,17 +82,23 @@ const Footer = () => {
             </Box>
 
             {/* SNS */}
-            <Box>
+            <Box sx={{ minWidth: "150px" }}>
+              
               <Typography variant="h6" sx={styles.sectionTitle}>
-                팔로우
+                인스타그램
               </Typography>
-              <Stack direction="row" spacing={1}>
-                {socialIcons.map((Icon, index) => (
-                  <IconButton key={index} sx={styles.snsIconButton}>
-                    <Icon sx={{ fontSize: 16 }} />
-                  </IconButton>
-                ))}
-              </Stack>
+              <IconButton
+                component="a"
+                href="https://www.instagram.com/your_instagram_id"
+                target="_blank"
+                rel="noopener"
+                sx={styles.snsIconButton}
+              >
+                <Instagram sx={{ fontSize: 20 }} />
+              </IconButton>
+              <Typography sx={{ fontSize: "0.85rem", color: "#aaa", mb: 1 }}>
+                실시간 소식을 확인하세요
+              </Typography>
             </Box>
           </Stack>
 
@@ -105,6 +111,13 @@ const Footer = () => {
             <Stack direction="row" spacing={3}>
               <Typography sx={styles.bottomLink}>개인정보처리방침</Typography>
               <Typography sx={styles.bottomLink}>이용약관</Typography>
+              <Typography
+                component={Link}
+                to="/admin-login"
+                sx={{ ...styles.bottomLink, fontSize: "0.85rem" }}
+              >
+                관리자 로그인
+              </Typography>
             </Stack>
           </Stack>
         </Stack>
