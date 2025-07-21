@@ -11,7 +11,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("http://localhost:5050/api/auth/login", {
         email,
         password,
       });
@@ -28,9 +28,9 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleLogin} style={{ maxWidth: 400, margin: "0 auto" }}>
       <div>
-        <label>이메일</label>
+        <label>아이디</label>
         <input
-          type="email"
+          type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required

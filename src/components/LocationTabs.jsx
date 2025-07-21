@@ -1,4 +1,3 @@
-// LocationTabs.jsx
 import { Box, Button, Divider } from "@mui/material";
 
 const tabs = ["오시는 길", "내부지도", "주변 볼거리"];

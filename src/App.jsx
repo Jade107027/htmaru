@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,6 +18,7 @@ import AdminPage from "./pages/AdminPage";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import InstagramSection from "./sections/InstagramSection";
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
                   <MenuSection />
                   <ReservationSection />
                   <LocationSection />
+                  <InstagramSection />
                 </>
               </Frame>
             }

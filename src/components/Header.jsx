@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { headerStyles as styles } from "../styles/styles";
 
-const logo = "/images/htmaru_logo.png";
+const logo = "/images/logo3.png";
 
 const navItems = [
   { label: "매장소개", path: "/about" },
@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <AppBar position="static" elevation={0} sx={styles.appBar}>
-      <Toolbar sx={styles.toolbar}>
+      <Toolbar sx={{ ...styles.toolbar, py: 1.5 }}>
         <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
           <Box component="img" src={logo} alt="황토마루 로고" sx={styles.logo} />
         </Box>

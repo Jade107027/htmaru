@@ -10,10 +10,10 @@ import {
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const reservationInfo = [
-  "예약은 최소 1일 전까지 가능합니다.",
-  "주말 및 공휴일은 예약이 조기 마감될 수 있습니다.",
-  "10인 이상 단체 예약은 전화로 문의해 주세요.",
-  "예약 확정 후 변경 및 취소는 예약일 하루 전까지 가능합니다.",
+  "예약은 네이버로만 가능합니다. (3주 전부터 예약 가능)",
+  "10인 이상 단체 예약은 전화문의 부탁 드립니다.",
+  "예약 확정 후 변경 및 취소는 예약일 하루 전까지 네이버로 가능합니다.",
+  "주말 및 공휴일은 예약은 조기 마감될 수 있으니 참고 부탁 드립니다.",
 ];
 
 const ReservationSection = () => {
@@ -63,7 +63,7 @@ const ReservationSection = () => {
                 overflow: "hidden",
                 flex: 1,
                 minHeight: 420,
-                bgcolor: "white", // ✅ LocationSection과 동일하게
+                bgcolor: "white", 
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -107,9 +107,9 @@ const ReservationSection = () => {
                 variant="contained"
                 sx={{
                   mt: 4,
-                  backgroundColor: "#03c75a", // ✅ 초록색 복원
+                  backgroundColor: "#03c75a", 
                   "&:hover": {
-                    backgroundColor: "#02b350", // ✅ hover 시 진한 초록
+                    backgroundColor: "#02b350", 
                   },
                   px: 3,
                   py: 1.5,
@@ -118,7 +118,7 @@ const ReservationSection = () => {
                   fontWeight: 500,
                 }}
                 component="a"
-                href="https://map.naver.com/p/entry/place/11605363"
+                href="https://map.naver.com/p/entry/place/11605363?lng=129.1930096&lat=35.3429323&placePath=/booking?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507211320&locale=ko&svcName=map_pcv5&searchType=place&c=15.00,0,0,0,dh"
                 target="_blank"
                 rel="noopener noreferrer"
               >

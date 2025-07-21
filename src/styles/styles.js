@@ -1,5 +1,3 @@
-// styles.js
-
 export const sectionWrapper = {
   backgroundColor: "#fdf8f3",
   py: 8,
@@ -144,8 +142,9 @@ export const headerStyles = {
     px: 3,
   },
   logo: {
-    width: 168,
-    height: 65,
+    width: 200,
+    height: 70,
+    mt: 1.5,
   },
   navLink: {
     color: "#374151",
@@ -222,7 +221,7 @@ export const heroStyles = {
   section: {
     position: "relative",
     width: "100%",
-    height: "960px",
+    height: "1200px",
     backgroundImage: "url(images/image3.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -238,7 +237,7 @@ export const heroStyles = {
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
   },
   content: {
     position: "relative",
@@ -262,8 +261,8 @@ export const heroStyles = {
     whiteSpace: "nowrap",
   },
   menuButton: {
-    backgroundColor: "#a75e2b",
-    color: "white",
+    backgroundColor: "white",
+    color: "#b45309",
     fontSize: "16px",
     fontWeight: "normal",
     padding: "12px 24px",
@@ -274,8 +273,8 @@ export const heroStyles = {
     },
   },
   reserveButton: {
-    backgroundColor: "white",
-    color: "#b45309",
+    backgroundColor: "#a75e2b",
+    color: "white",
     fontSize: "16px",
     fontWeight: "normal",
     padding: "12px 24px",

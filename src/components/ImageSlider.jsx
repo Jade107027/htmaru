@@ -1,4 +1,3 @@
-// src/components/ImageSlider.jsx
 import React, { useState } from "react";
 import { Box, IconButton } from "@mui/material";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";

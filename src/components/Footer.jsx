@@ -89,7 +89,7 @@ const Footer = () => {
               </Typography>
               <IconButton
                 component="a"
-                href="https://www.instagram.com/your_instagram_id"
+                href="https://www.instagram.com/hwangtomaru1996"
                 target="_blank"
                 rel="noopener"
                 sx={styles.snsIconButton}

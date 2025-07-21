@@ -1,4 +1,3 @@
-// MenuLayout.jsx
 import React, { useState } from "react";
 import {
   Box,
@@ -80,15 +79,16 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
               {[
                 {
                   title: "주말",
-                  desc: "프리미엄 한우 BBQ / 샐러드 / 찬 음식 / 따뜻한 음식 / 반찬 / 소스 / 디저트 포함",
+                  desc: "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
                   time: "토–일 11:00 - 21:00 (라스트오더 19:30)",
                   additional: "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
                   price: "₩33,800",
                 },
                 {
                   title: "주중",
-                  desc: "정통 한식 BBQ / 샐러드 / 찬 음식 / 따뜻한 음식 / 반찬 / 소스 / 아이스크림 및 커피 포함",
+                  desc: "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
                   time: "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
+                  additional: "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
                   price: "₩31,800",
                 },
               ].map((item, index) => (
@@ -129,6 +129,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                         fontFamily: "Hahmlet-Regular, Helvetica",
                         lineHeight: 1.6,
                         mb: 2,
+                        whiteSpace: "pre-line",
                       }}
                     >
                       {item.desc}
@@ -179,7 +180,6 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
       {/* 메뉴 갤러리 */}
       <Box sx={{ mt: 10 }}>
         <Typography variant="h5" align="center" sx={{ mb: 4 }}>
-          메뉴 갤러리
         </Typography>
         <Box
           sx={{
