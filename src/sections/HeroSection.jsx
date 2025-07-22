@@ -13,10 +13,10 @@ export const HeroSection = () => {
           variant="h1"
           sx={{
             ...heroStyles.title,
-            fontSize: { xs: '30px', md: '64px' },     // 크게
-            fontWeight: 700,                          // 더 굵게
+            fontSize: { xs: '35px', md: '64px' },     
+            fontWeight: 500,                         
             color: '#fff',
-            fontFamily: 'Hahmlet, serif',             // 예스러운 서체
+            fontFamily: 'Helvetica, serif',           
             letterSpacing: '-0.5px',
             mb: 4,
           }}
@@ -33,7 +33,7 @@ export const HeroSection = () => {
             fontWeight: 400,
             lineHeight: 1.8,
             color: '#fefefe',
-            fontFamily: 'Noto Sans KR, sans-serif',
+            fontFamily: 'Hahmlet, sans-serif',
             textShadow: '0 1px 3px rgba(0,0,0,0.1)',  
             mb: 7,
           }}
@@ -53,7 +53,7 @@ export const HeroSection = () => {
           </Button>
           <Button
             component="a"
-            href="https://map.naver.com/p/entry/place/11605363?lng=129.1930096&lat=35.3429323&placePath=/booking?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507211320&locale=ko&svcName=map_pcv5&searchType=place&c=15.00,0,0,0,dh"
+            href="https://booking.naver.com/booking/6/bizes/1396607/items/6686682?area=ple&defaultOpen=all&lang=ko&startDate=2025-07-22&theme=place"
             target="_blank"
             rel="noopener noreferrer"
             variant="contained"

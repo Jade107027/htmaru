@@ -1,5 +1,11 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Stack,
+  Button,
+} from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { headerStyles as styles } from "../styles/styles";
 
@@ -17,34 +23,56 @@ const Header = () => {
 
   return (
     <AppBar position="static" elevation={0} sx={styles.appBar}>
-      <Toolbar sx={{ ...styles.toolbar, py: 1.5 }}>
+      <Toolbar
+        sx={{
+          width: "100%",
+          maxWidth: "100%",
+          px: { xs: 2, md: 4 },
+          py: 1.5,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        {/* 로고 */}
         <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
           <Box component="img" src={logo} alt="황토마루 로고" sx={styles.logo} />
         </Box>
-        <Stack direction="row" spacing={4}>
-          {navItems.map((item) =>
-            item.path.startsWith("/") ? (
-              // 내부 라우트는 Link 컴포넌트 사용
-              <Typography
-                key={item.label}
-                component={Link}
-                to={item.path}
-                sx={styles.navLink}
-              >
-                {item.label}
-              </Typography>
-            ) : (
-              // 해시(#) 섹션 이동은 a 태그 사용
-              <Typography
-                key={item.label}
-                component="a"
-                href={item.path}
-                sx={styles.navLink}
-              >
-                {item.label}
-              </Typography>
-            )
-          )}
+
+        {/* 네비게이션 버튼 */}
+        <Stack direction="row" spacing={1}>
+          {navItems.map((item) => (
+            <Button
+              key={item.label}
+              component={Link}
+              to={item.path}
+              disableRipple
+              sx={{
+                color: "#5c3a1d",
+                fontFamily: "Hahmlet, serif",
+                fontWeight: 500,
+                fontSize: "1.5rem",
+                textTransform: "none",
+                backgroundColor: "transparent",
+                borderRadius: 2,
+                px: 2,
+                py: 0.8,
+                transition: "transform 0.15s ease-in-out, background-color 0.2s ease-in-out",
+                "&:hover": {
+                  backgroundColor: "#f3e8dc",
+                },
+                "&:active": {
+                  transform: "scale(1.12)",
+                  backgroundColor: "#e9dac6",
+                },
+                "&:visited": {
+                  color: "#5c3a1d", // 황토 계열 색으로 강제 고정
+                },
+              }}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Stack>
       </Toolbar>
     </AppBar>

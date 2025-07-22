@@ -91,7 +91,7 @@ const ReservationSection = () => {
                       alignItems="center"
                     >
                       <CheckCircleIcon
-                        fontSize="small"
+                        fontSize="20px"
                         sx={{ color: "#B45309" }}
                       />
                       <Typography sx={{ color: "#333", fontSize: 15 }}>
@@ -107,18 +107,19 @@ const ReservationSection = () => {
                 variant="contained"
                 sx={{
                   mt: 4,
-                  backgroundColor: "#03c75a", 
+                  backgroundColor: "#03c75a",
+                  fontWeight: "bold", 
                   "&:hover": {
-                    backgroundColor: "#02b350", 
+                    backgroundColor: "#02b350",
+                    color: "white", 
                   },
                   px: 3,
                   py: 1.5,
                   borderRadius: 2,
                   fontFamily: "Hahmlet-Regular, Helvetica",
-                  fontWeight: 500,
                 }}
                 component="a"
-                href="https://map.naver.com/p/entry/place/11605363?lng=129.1930096&lat=35.3429323&placePath=/booking?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202507211320&locale=ko&svcName=map_pcv5&searchType=place&c=15.00,0,0,0,dh"
+                href="https://booking.naver.com/booking/6/bizes/1396607/items/6686682?area=ple&defaultOpen=all&lang=ko&startDate=2025-07-22&theme=place"
                 target="_blank"
                 rel="noopener noreferrer"
               >

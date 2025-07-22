@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
+import { heroStyles } from "../styles/styles";
 
 const galleryImages = [
   "/menu-images/menu1.jpg",
@@ -76,44 +77,44 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
               alignItems="stretch"
               sx={{ width: "100%", justifyContent: "center" }}
             >
-              {[
-                {
-                  title: "주말",
-                  desc: "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
-                  time: "토–일 11:00 - 21:00 (라스트오더 19:30)",
-                  additional: "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
-                  price: "₩33,800",
-                },
-                {
-                  title: "주중",
-                  desc: "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
-                  time: "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
-                  additional: "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
-                  price: "₩31,800",
-                },
-              ].map((item, index) => (
-                <Paper
-                  key={index}
-                  elevation={2}
-                  sx={{
-                    width: { xs: "100%", md: "50%" },
-                    borderRadius: "16px",
-                    p: 4,
-                    overflow: "hidden",
-                    flex: 1,
-                    bgcolor: "white",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    minHeight: 420,
-                  }}
-                >
-                  <Box>
+              {["주말", "주중"].map((type, index) => {
+                const isWeekend = type === "주말";
+                const item = {
+                  title: type,
+                  desc:
+                    "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
+                  time: isWeekend
+                    ? "토–일 11:00 - 21:00 (라스트오더 19:30)"
+                    : "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
+                  additional:
+                    "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
+                  price: isWeekend ? "₩33,800" : "₩31,800",
+                };
+
+                return (
+                  <Paper
+                    key={index}
+                    elevation={2}
+                    sx={{
+                      width: { xs: "100%", md: "50%" },
+                      borderRadius: "16px",
+                      px: 4,
+                      pt: 3,
+                      pb: 4,
+                      overflow: "hidden",
+                      flex: 1,
+                      bgcolor: "white",
+                      display: "flex",
+                      flexDirection: "column",
+                      minHeight: 440,
+                    }}
+                  >
                     <Typography
                       variant="h6"
+                      align="center"
                       sx={{
                         fontWeight: "bold",
-                        mb: 2,
+                        mb: 4,
                         color: "#b45309",
                         fontSize: "28px",
                         fontFamily: "Hahmlet-Regular, Helvetica",
@@ -122,34 +123,38 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                       {item.title}
                     </Typography>
 
-                    <Typography
-                      sx={{
-                        fontSize: "18px",
-                        color: "#333",
-                        fontFamily: "Hahmlet-Regular, Helvetica",
-                        lineHeight: 1.6,
-                        mb: 2,
-                        whiteSpace: "pre-line",
-                      }}
-                    >
-                      {item.desc}
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        color: "#333",
-                        whiteSpace: "pre-line",
-                        mb: item.additional ? 1.5 : 2,
-                      }}
-                    >
-                      {item.time}
-                    </Typography>
-
-                    {item.additional && (
+                    <Box sx={{ pl: 6 }}>
                       <Typography
                         sx={{
-                          fontSize: "15px",
+                          fontSize: "21px",
+                          color: "#333",
+                          fontFamily: "Hahmlet-Regular, Helvetica",
+                          lineHeight: 1.9,
+                          mb: 3,
+                          whiteSpace: "pre-line",
+                        }}
+                      >
+                        {item.desc}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: "19px",
+                          color: "#333",
+                          whiteSpace: "pre-line",
+                          mb: 2,
+                        }}
+                      >
+                        {item.time}
+                      </Typography>
+
+                      {item.title === "주말" && (
+                        <Box sx={{ display: { xs: "none", md: "block" }, height: "24px" }} />
+                      )}
+
+                      <Typography
+                        sx={{
+                          fontSize: "17px",
                           color: "#777",
                           whiteSpace: "pre-line",
                           mb: 2,
@@ -157,21 +162,21 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                       >
                         {item.additional}
                       </Typography>
-                    )}
-                  </Box>
 
-                  <Typography
-                    sx={{
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                      color: "#b45309",
-                      mt: "auto",
-                    }}
-                  >
-                    {item.price}
-                  </Typography>
-                </Paper>
-              ))}
+                      <Typography
+                        sx={{
+                          fontSize: "24px",
+                          fontWeight: "bold",
+                          color: "#b45309",
+                          mt: 2,
+                        }}
+                      >
+                        {item.price}
+                      </Typography>
+                    </Box>
+                  </Paper>
+                );
+              })}
             </Stack>
           </Box>
         </Container>
@@ -179,8 +184,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
 
       {/* 메뉴 갤러리 */}
       <Box sx={{ mt: 10 }}>
-        <Typography variant="h5" align="center" sx={{ mb: 4 }}>
-        </Typography>
+        <Typography variant="h5" align="center" sx={{ mb: 4 }} />
         <Box
           sx={{
             position: "relative",
@@ -248,21 +252,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
           <Button
             component={Link}
             to="/menupage"
-            variant="outlined"
-            sx={{
-              color: "#b45309",
-              borderColor: "#a75e2b",
-              backgroundColor: "white",
-              px: 3,
-              py: 1.5,
-              fontSize: "16px",
-              textTransform: "none",
-              borderRadius: 1,
-              "&:hover": {
-                borderColor: "#a75e2b",
-                backgroundColor: "#fef7ed",
-              },
-            }}
+            sx={heroStyles.menuButton}
           >
             전체 메뉴 보기
           </Button>

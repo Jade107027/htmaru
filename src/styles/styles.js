@@ -262,26 +262,32 @@ export const heroStyles = {
   },
   menuButton: {
     backgroundColor: "white",
-    color: "#b45309",
+    color: "#a75e2b",
     fontSize: "16px",
-    fontWeight: "normal",
+    fontWeight: "bold",
     padding: "12px 24px",
+    fontFamily: "Hahmlet, serif",
     borderRadius: "8px",
     textTransform: "none",
+    border: "2px solid #a75e2b", 
     "&:hover": {
-      backgroundColor: "#8b4e24",
+      backgroundColor: "#dba96b",
+      color: "white",
     },
+
   },
   reserveButton: {
     backgroundColor: "#a75e2b",
     color: "white",
     fontSize: "16px",
-    fontWeight: "normal",
+    fontWeight: "bold",
     padding: "12px 24px",
+    fontFamily: "Hahmlet, serif",
     borderRadius: "8px",
     textTransform: "none",
     "&:hover": {
-      backgroundColor: "#f5f5f5",
+      backgroundColor: "#dba96b",
+      color: "white",
     },
   },
 };

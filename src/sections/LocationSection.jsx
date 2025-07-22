@@ -83,7 +83,7 @@ export const LocationSection = () => {
             alignItems="stretch"
             sx={{ width: "100%", justifyContent: "center" }}
           >
-            {/* ✅ 지도 삽입된 박스 */}
+            {/* 지도 삽입된 박스 */}
             <Box
               ref={mapRef}
               sx={{
@@ -120,18 +120,8 @@ export const LocationSection = () => {
               <Stack spacing={3}>
                 {locationData.sections.map((section, index) => (
                   <Stack key={index} direction="row" spacing={2}>
-                    <Box
-                      sx={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: "50%",
-                        backgroundColor: "rgba(180, 83, 9, 0.1)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {section.icon}
+                    <Box sx={{ mt: "2px" }}>
+                      {React.cloneElement(section.icon, { sx: { fontSize: 20 } })}
                     </Box>
                     <Box>
                       <Typography
@@ -168,7 +158,8 @@ export const LocationSection = () => {
                   mt: 4,
                   backgroundColor: "#a75e2b",
                   "&:hover": {
-                    backgroundColor: "#8a4d23",
+                    backgroundColor: "#dba96b",
+                    color: "white",
                   },
                   px: 3,
                   py: 1.5,
