@@ -4,7 +4,7 @@ import { Box, Container, Typography, Stack, Paper } from "@mui/material";
 const introData = [
   {
     title: " ",
-    image: "/images/image1.jpg",
+    image: "/htmaru/images/image1.jpg",
     description: `깊은 숲속, 10여 년간 가족이 정성스럽게 지은 황토집.  
 4만 평 자연 속 여섯 채의 황토집 사이로 작은 계곡물이 흐르고, 
 
@@ -13,7 +13,7 @@ const introData = [
   },
   {
     title: " ",
-    image: "/images/image2.jpg",
+    image: "/htmaru/images/image2.jpg",
     description: `80대 이모와 30대 조카들이 함께 만들어가는 황토마루의 이야기.
 
 1996년 첫 오픈 이후,  
@@ -25,7 +25,7 @@ const introData = [
   },
   {
     title: " ",
-    image: "/images/image3.jpg",
+    image: "/htmaru/images/image3.jpg",
     description: `뉴욕 CIA를 졸업 후 맨해튼 미슐랭 레스토랑 근무,  
 서울과 기장의 레스토랑을 운영하였습니다.
 

@@ -47,7 +47,7 @@ const ReservationSection = () => {
                 flex: 1,
                 display: "flex",
                 minHeight: 420,
-                backgroundImage: "url(/images/image2.jpg)",
+                backgroundImage: "url(/htmaru/images/image2.jpg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}

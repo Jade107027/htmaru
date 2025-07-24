@@ -4,12 +4,48 @@ const theme = createTheme({
   typography: {
     fontFamily: `"Hahmlet", "sans-serif"`,
 
-    h1: { fontFamily: `"Gowun Batang", "serif"` },
-    h2: { fontFamily: `"Gowun Batang", "serif"` },
-    h3: { fontFamily: `"Gowun Batang", "serif"` },
-    h4: { fontFamily: `"Gowun Batang", "serif"` },
-    h5: { fontFamily: `"Gowun Batang", "serif"` },
-    h6: { fontFamily: `"Gowun Batang", "serif"` },
+    h1: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "3rem",
+      "@media (max-width:600px)": {
+        fontSize: "2rem",
+      },
+    },
+    h2: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "2.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.6rem",
+      },
+    },
+    h3: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "2rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.4rem",
+      },
+    },
+    h4: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "1.7rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.2rem",
+      },
+    },
+    h5: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "1.4rem",
+      "@media (max-width:600px)": {
+        fontSize: "1rem",
+      },
+    },
+    h6: {
+      fontFamily: `"Gowun Batang", "serif"`,
+      fontSize: "1.2rem",
+      "@media (max-width:600px)": {
+        fontSize: "0.95rem",
+      },
+    },
 
     body1: { fontFamily: `"Hahmlet", "sans-serif"` },
     body2: { fontFamily: `"Hahmlet", "sans-serif"` },
@@ -17,10 +53,10 @@ const theme = createTheme({
 
   palette: {
     background: {
-      default: "#fdf8f3", // 사이트 배경색
+      default: "#fdf8f3",
     },
     primary: {
-      main: "#a75e2b", // 황토 계열 주 색상
+      main: "#a75e2b",
     },
     secondary: {
       main: "#b45309",
@@ -36,8 +72,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 8,
-          textTransform: "none", // 버튼 텍스트 대문자 방지
-          fontWeight: "bold",
+          textTransform: "none",
+          fontWeight: 400,
         },
       },
     },

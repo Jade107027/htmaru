@@ -4,7 +4,7 @@ import { Box, Container, Paper, Stack, Typography, Link } from "@mui/material";
 const places = [
   {
     title: "장안사",
-    image: "/images/image1.jpg",
+    image: "/htmaru/images/image1.jpg",
     description:
       "불광산(659m) 자락에 있는 고찰로 범어사의 말사이다. 673년 원효대사가 창건하여 이후 여러 차례 중수되어 오늘에 이름.",
     info: [
@@ -15,7 +15,7 @@ const places = [
   },
   {
     title: "간절곶",
-    image: "/images/image1.jpg",
+    image: "/htmaru/images/image1.jpg",
     description:
       "우리나라에서 새해 가장 먼저 해가 뜨는 간절곶은 대표적인 해맞이 명소로 소망우체통이 있는 이색적인 관광지입니다.",
     info: [
@@ -39,7 +39,7 @@ const places = [
   },
   {
     title: "동부산 롯데아울렛",
-    image: "/images/image1.jpg",
+    image: "/htmaru/images/image1.jpg",
     description:
       "동부산 롯데아울렛은 대형 매장과 쇼핑몰이 결합된 관광형 복합 쇼핑몰로 다양한 매장을 갖추고 있어 관광객들에게 인기입니다.",
     info: [
@@ -50,7 +50,7 @@ const places = [
   },
   {
     title: "일광해수욕장",
-    image: "/images/image1.jpg",
+    image: "/htmaru/images/image1.jpg",
     description:
       "맑고 얕은 바다와 넓은 백사장을 가진 일광해수욕장은 여름철 피서지로 인기가 높으며 숙박과 음식점도 가까이에 위치합니다.",
     info: [],

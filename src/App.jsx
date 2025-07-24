@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom"; 
 import theme from "./theme";
 
 import Frame from "./Frame";
@@ -24,9 +24,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter> 
         <Routes>
-          {/* 홈페이지 */}
           <Route
             path="/"
             element={
@@ -41,8 +40,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 메뉴 페이지 */}
           <Route
             path="/menupage"
             element={
@@ -51,8 +48,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 오시는 길 */}
           <Route
             path="/location"
             element={
@@ -61,8 +56,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 예약하기 */}
           <Route
             path="/reservation"
             element={
@@ -71,8 +64,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 매장소개 */}
           <Route
             path="/about"
             element={
@@ -81,8 +72,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 어드민 로그인 */}
           <Route
             path="/admin-login"
             element={
@@ -91,8 +80,6 @@ function App() {
               </Frame>
             }
           />
-
-          {/* 관리자 페이지 */}
           <Route
             path="/admin"
             element={
@@ -102,7 +89,7 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }

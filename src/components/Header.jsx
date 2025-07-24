@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
   Box,
-  Stack,
   Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
-import { headerStyles as styles } from "../styles/styles";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
-const logo = "/images/logo3.png";
+const logo = "/htmaru/images/logo3.png";
 
 const navItems = [
   { label: "매장소개", path: "/about" },
@@ -20,61 +27,89 @@ const navItems = [
 
 const Header = () => {
   const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const toggleDrawer = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
-    <AppBar position="static" elevation={0} sx={styles.appBar}>
-      <Toolbar
+    <AppBar
+      position="static"
+      elevation={0}
+      sx={{
+        backgroundColor: "#fdf8f3",
+        height: { xs: 70, md: 120 },
+      }}
+    >
+      <Box
         sx={{
           width: "100%",
-          maxWidth: "100%",
-          px: { xs: 2, md: 4 },
-          py: 1.5,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          px: { xs: 2, md: 4 }, // 좌우 여백
         }}
       >
-        {/* 로고 */}
-        <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
-          <Box component="img" src={logo} alt="황토마루 로고" sx={styles.logo} />
-        </Box>
-
-        {/* 네비게이션 버튼 */}
-        <Stack direction="row" spacing={1}>
-          {navItems.map((item) => (
-            <Button
-              key={item.label}
-              component={Link}
-              to={item.path}
-              disableRipple
+        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+          {/* 로고 */}
+          <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
+            <Box
+              component="img"
+              src={logo}
+              alt="황토마루 로고"
               sx={{
-                color: "#5c3a1d",
-                fontFamily: "Hahmlet, serif",
-                fontWeight: 500,
-                fontSize: "1.5rem",
-                textTransform: "none",
-                backgroundColor: "transparent",
-                borderRadius: 2,
-                px: 2,
-                py: 0.8,
-                transition: "transform 0.15s ease-in-out, background-color 0.2s ease-in-out",
-                "&:hover": {
-                  backgroundColor: "#f3e8dc",
-                },
-                "&:active": {
-                  transform: "scale(1.12)",
-                  backgroundColor: "#e9dac6",
-                },
-                "&:visited": {
-                  color: "#5c3a1d", // 황토 계열 색으로 강제 고정
-                },
+                width: { xs: 120, md: 200 },
+                height: { xs: 50, md: 70 },
+                mt: { xs: 1, md: 2 }, // ✅ 로고 아래 공간 추가
               }}
-            >
-              {item.label}
-            </Button>
+            />
+          </Box>
+
+          {/* 데스크탑 네비게이션 */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
+            {navItems.map((item) => (
+              <Button
+                key={item.label}
+                component={Link}
+                to={item.path}
+                disableRipple
+                sx={{
+                  color: "#374151",
+                  fontFamily: "Hahmlet, serif",
+                  textDecoration: "none",
+                  fontSize: { xs: "14px", md: "16px" },
+                  px: 1,
+                  "&:hover": { opacity: 0.7 },
+                }}
+              >
+                {item.label}
+              </Button>
+            ))}
+          </Box>
+
+          {/* 모바일 메뉴 버튼 */}
+          <IconButton
+            onClick={toggleDrawer}
+            sx={{ display: { xs: "flex", md: "none" }, color: "#5c3a1d" }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </Box>
+
+      {/* 모바일 드로어 */}
+      <Drawer anchor="right" open={mobileOpen} onClose={toggleDrawer}>
+        <List sx={{ width: 220 }}>
+          {navItems.map((item) => (
+            <ListItem key={item.label} disablePadding>
+              <ListItemButton component={Link} to={item.path} onClick={toggleDrawer}>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </ListItem>
           ))}
-        </Stack>
-      </Toolbar>
+        </List>
+      </Drawer>
     </AppBar>
   );
 };

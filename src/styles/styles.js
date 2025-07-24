@@ -27,7 +27,7 @@ export const chipSelected = {
   color: "white",
   px: 3,
   py: 1,
-  fontSize: "16px",
+  fontSize: { xs: "14px", md: "16px" },
   fontWeight: "normal",
   "&:hover": {
     backgroundColor: "#5c3a21",
@@ -36,7 +36,7 @@ export const chipSelected = {
 
 export const chipUnselected = {
   color: "#6b7280",
-  fontSize: "16px",
+  fontSize: { xs: "14px", md: "16px" },
   fontWeight: "normal",
   textTransform: "none",
   minWidth: "auto",
@@ -47,9 +47,10 @@ export const chipUnselected = {
 export const buttonFilledBrown = {
   backgroundColor: "#a75e2b",
   color: "white",
-  fontSize: "16px",
+  fontSize: { xs: "14px", md: "16px" },
   fontWeight: "normal",
-  padding: "12px 24px",
+  px: { xs: 2, md: 3 },
+  py: { xs: 1, md: 1.5 },
   borderRadius: "8px",
   textTransform: "none",
   "&:hover": {
@@ -61,9 +62,9 @@ export const buttonOutlinedBrown = {
   color: "#b45309",
   borderColor: "#a75e2b",
   backgroundColor: "white",
-  px: 3,
-  py: 1.5,
-  fontSize: "16px",
+  px: { xs: 2, md: 3 },
+  py: { xs: 1, md: 1.5 },
+  fontSize: { xs: "14px", md: "16px" },
   textTransform: "none",
   borderRadius: 1,
   "&:hover": {
@@ -72,89 +73,9 @@ export const buttonOutlinedBrown = {
   },
 };
 
-export const footerStyles = {
-  root: {
-    backgroundColor: "#2c1810",
-    py: 6,
-    px: 2,
-    width: "100%",
-  },
-  container: {
-    maxWidth: "1536px",
-    mx: "auto",
-    position: "relative",
-  },
-  brandTitle: {
-    color: "white",
-    fontWeight: "bold",
-    mb: 3,
-    fontSize: "2rem",
-  },
-  brandDescription: {
-    color: "#d1d5db",
-    lineHeight: 1.5,
-    maxWidth: "400px",
-  },
-  sectionTitle: {
-    color: "white",
-    fontWeight: "bold",
-    mb: 2,
-  },
-  linkText: {
-    color: "#d1d5db",
-    cursor: "pointer",
-    "&:hover": { color: "white" },
-  },
-  contactIcon: {
-    color: "white",
-    fontSize: 16,
-  },
-  contactText: {
-    color: "white",
-  },
-  snsIconButton: {
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    color: "white",
-    width: 40,
-    height: 40,
-    "&:hover": {
-      backgroundColor: "rgba(255, 255, 255, 0.2)",
-    },
-  },
-  copyright: {
-    color: "#9ca3af",
-    fontSize: "0.875rem",
-  },
-  bottomLink: {
-    color: "#9ca3af",
-    fontSize: "0.875rem",
-    cursor: "pointer",
-    "&:hover": { color: "#d1d5db" },
-  },
-};
 
-export const headerStyles = {
-  appBar: {
-    backgroundColor: "#fdf8f3",
-  },
-  toolbar: {
-    justifyContent: "space-between",
-    px: 3,
-  },
-  logo: {
-    width: 200,
-    height: 70,
-    mt: 1.5,
-  },
-  navLink: {
-    color: "#374151",
-    fontFamily: "Hahmlet-Regular, Helvetica",
-    textDecoration: "none",
-    "&:hover": {
-      opacity: 0.7,
-    },
-  },
-};
+
+
 
 export const aboutStyles = {
   sectionBox: {
@@ -171,13 +92,11 @@ export const aboutStyles = {
   },
   imageBox: {
     flex: 1,
-    height: { xs: 300, md: 520 },
+    height: { xs: 240, md: 520 },
     borderRadius: 2,
-    backgroundImage: "url(/image.png)",
+    backgroundImage: "url(/htmaru/image.png)",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    boxShadow:
-      "0px 4px 6px -4px rgba(0,0,0,0.1), 0px 10px 15px -3px rgba(0,0,0,0.1)",
   },
   paper: {
     flex: 1,
@@ -219,69 +138,72 @@ export const aboutStyles = {
 
 export const heroStyles = {
   section: {
-    position: "relative",
-    width: "100%",
-    height: "1200px",
-    backgroundImage: "url(images/image3.jpg)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    paddingLeft: "208px",
-    paddingTop: "200px",
-  },
+  position: "relative",
+  width: "100%",
+  minHeight: "100vh", // ✅ 화면 전체 높이 채움
+  backgroundImage: "url(/htmaru/images/image3.jpg)",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  alignItems: "center", // ✅ 중앙 정렬로 변경
+  justifyContent: "center",
+  px: { xs: 2, md: "208px" }, // ✅ 좌우 여백 반응형
+  pt: { xs: 10, md: "200px" }, // ✅ 위쪽 여백 반응형
+  boxSizing: "border-box",
+  flexDirection: "column", // 모바일 대응
+},
   overlay: {
     position: "absolute",
     top: 0,
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
   content: {
-    position: "relative",
-    zIndex: 1,
-    maxWidth: "600px",
-  },
+  position: "relative",
+  zIndex: 1,
+  maxWidth: { xs: "100%", md: "600px" }, // ✅ 반응형 너비
+  px: { xs: 2, md: 0 },
+  textAlign: "center", // 모바일 중앙정렬
+},
   title: {
-    color: "white",
-    fontSize: "48px",
+    fontSize: { xs: "40px", md: "64px" },
     fontWeight: "bold",
-    marginBottom: "16px",
-    textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
-    whiteSpace: "nowrap",
+    color: "white",
+    mb: 2,
+    whiteSpace: "normal",
+    lineHeight: 1.2,
   },
   subtitle: {
+    fontSize: { xs: "16px", md: "24px" },
     color: "white",
-    fontSize: "18px",
-    fontWeight: "normal",
-    marginBottom: "48px",
-    textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
-    whiteSpace: "nowrap",
+    lineHeight: 1.7,
+    mb: 6,
+    whiteSpace: "pre-line",
   },
   menuButton: {
     backgroundColor: "white",
     color: "#a75e2b",
-    fontSize: "16px",
+    fontSize: { xs: "14px", md: "16px" },
     fontWeight: "bold",
-    padding: "12px 24px",
+    px: { xs: 2, md: 3 },
+    py: { xs: 1, md: 1.5 },
     fontFamily: "Hahmlet, serif",
     borderRadius: "8px",
     textTransform: "none",
-    border: "2px solid #a75e2b", 
     "&:hover": {
       backgroundColor: "#dba96b",
       color: "white",
     },
-
   },
   reserveButton: {
     backgroundColor: "#a75e2b",
     color: "white",
-    fontSize: "16px",
+    fontSize: { xs: "14px", md: "16px" },
     fontWeight: "bold",
-    padding: "12px 24px",
+    px: { xs: 2, md: 3 },
+    py: { xs: 1, md: 1.5 },
     fontFamily: "Hahmlet, serif",
     borderRadius: "8px",
     textTransform: "none",
