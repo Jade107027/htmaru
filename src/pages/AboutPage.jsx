@@ -72,7 +72,7 @@ const AboutPage = () => {
 
               {/* 텍스트 박스 */}
               <Paper
-                elevation={2}
+                elevation={0}
                 sx={{
                   p: 4,
                   borderRadius: 3,
@@ -92,17 +92,18 @@ const AboutPage = () => {
                   {section.title}
                 </Typography>
                 <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    color: "#444",
-                    fontFamily: "Hahmlet, serif",
-                    whiteSpace: "pre-line",
-                  }}
-                >
-                  {section.description}
-                </Typography>
+                variant="body1"
+                sx={{
+                  fontSize: { xs: "1rem", md: "1.1rem" },      
+                  lineHeight: { xs: 1.9, md: 1.8 },            
+                  color: "#444",
+                  fontFamily: "Hahmlet, serif",
+                  whiteSpace: "pre-line",
+                  wordBreak: "keep-all",                     
+                }}
+              >
+                {section.description}
+              </Typography>
               </Paper>
             </Stack>
           ))}

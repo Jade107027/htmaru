@@ -75,6 +75,14 @@ const theme = createTheme({
           textTransform: "none",
           fontWeight: 400,
         },
+        contained: {
+          backgroundColor: "#a75e2b",
+          color: "#fff",
+          "&:hover": {
+            backgroundColor: "#dba96b",
+            color: "#fff",
+          },
+        },
       },
     },
     MuiTypography: {

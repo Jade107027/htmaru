@@ -42,7 +42,7 @@ const HeroSection = () => {
           maxWidth: { xs: "90%", md: "40%" },
           textAlign: { xs: "center", md: "left" },
           px: { xs: 3, md: 0 },
-          ml: { xs: 0, md: 13 }, // ✅ 데스크탑에서만 오른쪽 이동
+          ml: { xs: 0, md: 13 }, 
           display: "flex",
           flexDirection: "column",
           alignItems: { xs: "center", md: "flex-start" },
@@ -51,7 +51,7 @@ const HeroSection = () => {
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "32px", sm: "42px", md: "64px" },
+            fontSize: { xs: "32px", sm: "36px", md: "48px" },
             fontWeight: 500,
             color: "#fff",
             fontFamily: "Hahmlet, serif",

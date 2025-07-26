@@ -15,7 +15,7 @@ const LocationPage = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <Box sx={{ px: 2, py: 6 }}>
+    <Box sx={{ px: 0, py: { xs: 6, md: 8 }, width: "100%" }}>
       {/* 탭 그룹 전체 박스 */}
       <Box
         sx={{
@@ -23,8 +23,8 @@ const LocationPage = () => {
           justifyContent: "center",
           backgroundColor: "#fff",
           borderRadius: "999px",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
-          border: "1px solid #ddd",
+          boxShadow: "none",
+          border: "1px solid #fff",
           width: "fit-content",
           mx: "auto",
           overflow: "hidden",
@@ -32,26 +32,28 @@ const LocationPage = () => {
       >
         {tabList.map((tab, index) => (
           <Button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            disableRipple
-            sx={{
-              borderRadius: 0,
-              px: 4,
-              py: 1.5,
-              backgroundColor: activeTab === tab.id ? "#a75e2b" : "#fff",
-              color: activeTab === tab.id ? "#fff" : "#333",
-              fontWeight: activeTab === tab.id ? "bold" : "normal",
-              fontSize: "16px",
-              borderRight:
-                index !== tabList.length - 1 ? "1px solid #e0e0e0" : "none",
-              "&:hover": {
-                backgroundColor: activeTab === tab.id ? "#8a4d23" : "#f7f7f7",
-              },
-            }}
-          >
-            {tab.label}
-          </Button>
+  key={tab.id}
+  onClick={() => setActiveTab(tab.id)}
+  disableRipple
+  sx={{
+    borderRadius: 0,
+    px: { xs: 1.5, sm: 5, md: 6 },
+    py: { xs: 0.8, sm: 1.5, md: 1.8 },
+    fontSize: { xs: "12px", sm: "16px", md: "24px" },
+    whiteSpace: "nowrap",
+    backgroundColor: activeTab === tab.id ? "#a75e2b" : "#fff",
+    color: activeTab === tab.id ? "#fff" : "#333",
+    fontWeight: activeTab === tab.id ? "bold" : "normal",
+    borderRight:
+      index !== tabList.length - 1 ? "1px solid #fef5ea" : "none",
+    "&:hover": {
+      backgroundColor: "#fef5ea",
+      color: "#a75e2b", 
+    },
+  }}
+>
+  {tab.label}
+</Button>
         ))}
       </Box>
 

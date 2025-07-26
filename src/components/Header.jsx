@@ -59,9 +59,9 @@ const Header = () => {
               src={logo}
               alt="황토마루 로고"
               sx={{
-                width: { xs: 120, md: 200 },
-                height: { xs: 50, md: 70 },
-                mt: { xs: 1, md: 2 }, // ✅ 로고 아래 공간 추가
+                width: { xs: 75, md: 200 },
+                height: { xs: 30, md: 70 },
+                mt: { xs: 0, md: 2 }, // ✅ 로고 아래 공간 추가
               }}
             />
           </Box>
@@ -99,8 +99,18 @@ const Header = () => {
       </Box>
 
       {/* 모바일 드로어 */}
-      <Drawer anchor="right" open={mobileOpen} onClose={toggleDrawer}>
-        <List sx={{ width: 220 }}>
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={toggleDrawer}
+        sx={{
+          "& .MuiDrawer-paper": {
+            width: "30%",
+            maxWidth: "80vw",
+          },
+        }}
+      >
+        <List>
           {navItems.map((item) => (
             <ListItem key={item.label} disablePadding>
               <ListItemButton component={Link} to={item.path} onClick={toggleDrawer}>

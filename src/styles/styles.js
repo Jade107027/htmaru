@@ -163,9 +163,9 @@ export const heroStyles = {
   content: {
   position: "relative",
   zIndex: 1,
-  maxWidth: { xs: "100%", md: "600px" }, // ✅ 반응형 너비
+  maxWidth: { xs: "100%", md: "600px" }, 
   px: { xs: 2, md: 0 },
-  textAlign: "center", // 모바일 중앙정렬
+  textAlign: "center", 
 },
   title: {
     fontSize: { xs: "40px", md: "64px" },
@@ -182,21 +182,22 @@ export const heroStyles = {
     mb: 6,
     whiteSpace: "pre-line",
   },
-  menuButton: {
-    backgroundColor: "white",
-    color: "#a75e2b",
-    fontSize: { xs: "14px", md: "16px" },
-    fontWeight: "bold",
-    px: { xs: 2, md: 3 },
-    py: { xs: 1, md: 1.5 },
-    fontFamily: "Hahmlet, serif",
-    borderRadius: "8px",
-    textTransform: "none",
-    "&:hover": {
-      backgroundColor: "#dba96b",
-      color: "white",
-    },
+menuButton: {
+  backgroundColor: "white",
+  color: "#a75e2b",
+  border: "1px solid #a75e2b",
+  fontSize: { xs: "14px", md: "16px" },
+  fontWeight: "bold",
+  px: { xs: 2, md: 3 },
+  py: { xs: 1, md: 1.5 },
+  fontFamily: "Hahmlet, serif",
+  borderRadius: "8px",
+  textTransform: "none",
+  "&:hover": {
+    backgroundColor: "#dba96b",
+    color: "white",
   },
+},
   reserveButton: {
     backgroundColor: "#a75e2b",
     color: "white",

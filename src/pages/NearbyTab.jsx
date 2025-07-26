@@ -59,8 +59,8 @@ const places = [
 
 const NearbyTab = () => {
   return (
-    <Box component="section" sx={{ bgcolor: "#fdf8f3", py: 8, px: 2 }}>
-      <Container maxWidth="lg">
+    <Box component="section" sx={{ bgcolor: "#fdf8f3", py: 8, width: "100%" }}>
+      <Box sx={{ px: { xs: 2, sm: 4, md: 10 }, width: "100%" }}>
         <Typography
           variant="h4"
           align="center"
@@ -90,7 +90,7 @@ const NearbyTab = () => {
               />
 
               <Paper
-                elevation={2}
+                elevation={0}
                 sx={{
                   flex: 1,
                   p: 3,
@@ -110,7 +110,14 @@ const NearbyTab = () => {
 
                 <Typography
                   variant="body1"
-                  sx={{ color: "#333", lineHeight: 1.7, mb: 2 }}
+                  sx={{
+                    color: "#333",
+                    lineHeight: 1.8,
+                    fontSize: { xs: 14, sm: 15 },
+                    wordBreak: "keep-all",
+                    whiteSpace: "normal",
+                    mb: 2,
+                  }}
                 >
                   {place.description}
                 </Typography>
@@ -133,7 +140,17 @@ const NearbyTab = () => {
                           >
                             {row.label}
                           </td>
-                          <td style={{ color: "#333" }}>{row.value}</td>
+                          <td
+                            style={{
+                              color: "#333",
+                              wordBreak: "keep-all",
+                              whiteSpace: "normal",
+                              fontSize: "14px",
+                              lineHeight: 1.6,
+                            }}
+                          >
+                            {row.value}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -143,7 +160,7 @@ const NearbyTab = () => {
             </Stack>
           ))}
         </Stack>
-      </Container>
+      </Box>
     </Box>
   );
 };

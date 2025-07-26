@@ -57,28 +57,27 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
         황토마루 메뉴
       </Typography>
 
-      {/* 고기뷔페 안내 */}
       <Box
-  component="section"
-  sx={{
-    backgroundColor: "#fdf8f3",
-    width: "100vw",
-    position: "relative",
-    left: "50%",
-    right: "50%",
-    marginLeft: "-50vw",
-    marginRight: "-50vw",
-    py: { xs: 6, md: 8 },
-  }}
->
-  <Container maxWidth="xl">
-    <Box sx={{ position: "relative" }}>
-      <Typography
-        variant="h4"
-        component="h2"
-        align="center"
-        sx={{ mb: 4, fontWeight: 600 }}
+        component="section"
+        sx={{
+          backgroundColor: "#fdf8f3",
+          width: "100vw",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          py: { xs: 6, md: 8 },
+        }}
       >
+        <Container maxWidth="xl">
+          <Box sx={{ position: "relative" }}>
+            <Typography
+              variant="h4"
+              component="h2"
+              align="center"
+              sx={{ mb: 4, fontWeight: 600 }}
+            >
               프미리엄 고기뷔페 안내
             </Typography>
 
@@ -99,7 +98,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                     : "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
                   additional:
                     "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
-                  price: isWeekend ? "₩33,800" : "₩31,800",
+                  price: isWeekend ? "33,800원" : "31,800원",
                 };
 
                 return (
@@ -118,13 +117,13 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                     }}
                   >
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       align="center"
                       sx={{
                         fontWeight: "bold",
                         mb: 4,
                         color: "#b45309",
-                        fontSize: "28px",
+                        fontSize: { xs: "23px", md: "32px" }, // 반응형 크기 지정
                         fontFamily: "Hahmlet-Regular, Helvetica",
                       }}
                     >
@@ -137,9 +136,10 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                           fontSize: { xs: "17px", md: "21px" },
                           color: "#333",
                           fontFamily: "Hahmlet-Regular, Helvetica",
-                          lineHeight: 1.9,
+                          lineHeight: { xs: 1.9, md: 1.8 },
                           mb: 3,
                           whiteSpace: "pre-line",
+                          wordBreak: "keep-all",
                         }}
                       >
                         {item.desc}
@@ -150,6 +150,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                           fontSize: { xs: "15px", md: "19px" },
                           color: "#333",
                           whiteSpace: "pre-line",
+                          wordBreak: "keep-all",
+                          lineHeight: { xs: 1.7, md: 1.6 },
                           mb: 2,
                         }}
                       >
@@ -165,6 +167,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                           fontSize: { xs: "14px", md: "17px" },
                           color: "#777",
                           whiteSpace: "pre-line",
+                          wordBreak: "keep-all",
+                          lineHeight: { xs: 1.6, md: 1.6 },
                           mb: 2,
                         }}
                       >
@@ -172,15 +176,16 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                       </Typography>
 
                       <Typography
-                        sx={{
-                          fontSize: { xs: "20px", md: "24px" },
-                          fontWeight: "bold",
-                          color: "#b45309",
-                          mt: 2,
-                        }}
-                      >
-                        {item.price}
-                      </Typography>
+                      sx={{
+                        fontSize: { xs: "20px", md: "24px" },
+                        fontWeight: "bold",
+                        color: "#b45309",
+                        mt: 2,
+                        textAlign: { xs: "center", md: "left" },
+                      }}
+                    >
+                      {item.price}
+                    </Typography>
                     </Box>
                   </Paper>
                 );
@@ -190,7 +195,6 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
         </Container>
       </Box>
 
-      {/* 메뉴 갤러리 */}
       <Box sx={{ mt: 10 }}>
         <Box
           sx={{
@@ -270,11 +274,10 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
         </Box>
       </Box>
 
-      {/* 전체 메뉴 보기 버튼 */}
       {showAllMenuButton && (
         <Box display="flex" justifyContent="center" mt={6}>
           <Button component={Link} to="/menupage" sx={heroStyles.menuButton}>
-            전체 메뉴 보기
+            메뉴 보기
           </Button>
         </Box>
       )}

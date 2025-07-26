@@ -1,30 +1,45 @@
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const MapTab = () => {
   return (
-    <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
-      <Container maxWidth="xl">
-        <Box sx={{ position: "relative" }}>
-          <Typography
-            variant="h4"
-            component="h2"
-            align="center"
-            color="#333333"
-            sx={{ mb: 4, fontWeight: 600 }}
-          >
-            황토마루 내부 지도
-          </Typography>
+    <Box
+      component="section"
+      py={8}
+      sx={{
+        backgroundColor: "#fdf8f3",
+        width: "100vw",
+        position: "relative",
+        left: "50%",
+        right: "50%",
+        marginLeft: "-50vw",
+        marginRight: "-50vw",
+      }}
+    >
+      <Box sx={{ px: 2 }}>
+        <Typography
+          variant="h4"
+          component="h2"
+          align="center"
+          color="#333333"
+          sx={{ mb: 4, fontWeight: 600 }}
+        >
+          황토마루 내부 지도
+        </Typography>
 
-          {/* 내부지도 이미지 삽입 */}
-          <Box
-            component="img"
-            src="/htmaru/images/htmaru_map2.png" // 이미지 경로 확인 필요
-            alt="황토마루 내부 지도"
-            sx={{ width: "100%", borderRadius: 2 }}
-          />
-        </Box>
-      </Container>
+        <Box
+          component="img"
+          src="/htmaru/images/htmaru_map2.png"
+          alt="황토마루 내부 지도"
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            display: "block",
+            mx: "auto",
+            mt: 4,
+          }}
+        />
+      </Box>
     </Box>
   );
 };

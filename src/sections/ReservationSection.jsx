@@ -13,7 +13,7 @@ const reservationInfo = [
   "예약은 네이버로만 가능합니다. (3주 전부터 예약 가능)",
   "10인 이상 단체 예약은 전화문의 부탁 드립니다.",
   "예약 확정 후 변경 및 취소는 예약일 하루 전까지 네이버로 가능합니다.",
-  "주말 및 공휴일은 예약은 조기 마감될 수 있으니 참고 부탁 드립니다.",
+  "주말 및 공휴일 예약은 조기 마감될 수 있으니 참고 부탁 드립니다.",
 ];
 
 const ReservationSection = () => {
@@ -55,7 +55,7 @@ const ReservationSection = () => {
 
             {/* 오른쪽 카드 */}
             <Paper
-              elevation={2}
+              elevation={0}
               sx={{
                 width: { xs: "100%", md: "50%" },
                 borderRadius: "16px",
@@ -88,13 +88,18 @@ const ReservationSection = () => {
                       key={index}
                       direction="row"
                       spacing={1.2}
-                      alignItems="center"
+                      alignItems="flex-start"
                     >
-                      <CheckCircleIcon
-                        fontSize="20px"
-                        sx={{ color: "#B45309" }}
-                      />
-                      <Typography sx={{ color: "#333", fontSize: 15 }}>
+                      <CheckCircleIcon fontSize="20px" sx={{ color: "#B45309" }} />
+                      <Typography
+                        sx={{
+                          color: "#333",
+                          fontSize: { xs: 14, sm: 15 },
+                          lineHeight: 1.6,
+                          wordBreak: "keep-all",
+                          whiteSpace: "normal",
+                        }}
+                      >
                         {info}
                       </Typography>
                     </Stack>
@@ -109,6 +114,7 @@ const ReservationSection = () => {
                   mt: 4,
                   backgroundColor: "#03c75a",
                   fontWeight: "bold", 
+                  boxShadow: "none",
                   "&:hover": {
                     backgroundColor: "#02b350",
                     color: "white", 

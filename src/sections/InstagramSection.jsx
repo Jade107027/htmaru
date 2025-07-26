@@ -9,7 +9,7 @@ const InstagramSection = () => {
           인스타그램
         </Typography>
 
-        <Paper elevation={2} sx={{ borderRadius: 2, overflow: "hidden", height: 700 }}>
+        <Paper elevation={0} sx={{ borderRadius: 2, overflow: "hidden", height: 700 }}>
           <iframe
             src="https://app.mirror-app.com/feed-instagram/7564b65b-f77f-49fa-9f54-7d7c942fcb3e/preview"
             title="Instagram Feed"
@@ -17,8 +17,8 @@ const InstagramSection = () => {
               width: "100%",
               height: "100%",
               border: "none",
-              overflow: "hidden", // 이 위치에 있어야 함
-              display: "block"     // 여백 문제 방지용
+              overflow: "hidden", 
+              display: "block"     
             }}
             loading="lazy"
           />
