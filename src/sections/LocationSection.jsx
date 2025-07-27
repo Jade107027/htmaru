@@ -174,6 +174,7 @@ const LocationSection = () => {
               }}
             >
               <Button
+                fullWidth
                 variant="contained"
                 href="https://map.naver.com/v5/entry/place/11605363"
                 target="_blank"
@@ -188,7 +189,8 @@ const LocationSection = () => {
                   py: 1.5,
                   borderRadius: 2,
                   boxShadow: "none",
-
+                  fontFamily: "Hahmlet-Regular, Helvetica",
+                  
                 }}
               >
                 네이버 지도에서 길찾기

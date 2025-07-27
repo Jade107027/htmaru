@@ -52,9 +52,9 @@ const HeroSection = () => {
           variant="h1"
           sx={{
             fontSize: { xs: "32px", sm: "36px", md: "48px" },
-            fontWeight: 500,
+            fontWeight: "bold",
             color: "#fff",
-            fontFamily: "Hahmlet, serif",
+            fontFamily: "Gowun Batang, serif",
             mb: { xs: 3, md: 4 },
           }}
         >
@@ -96,7 +96,7 @@ const HeroSection = () => {
               fontWeight: "bold",
               px: 3,
               py: 1.5,
-              fontFamily: "Hahmlet, serif",
+              fontFamily: "Hahmlet-Regular, Helvetica",
               borderRadius: "8px",
               textTransform: "none",
               whiteSpace: "nowrap", 
@@ -124,7 +124,7 @@ const HeroSection = () => {
               fontWeight: "bold",
               px: 3,
               py: 1.5,
-              fontFamily: "Hahmlet, serif",
+              fontFamily: "Hahmlet-Regular, Helvetica",
               borderRadius: "8px",
               textTransform: "none",
               whiteSpace: "nowrap", 

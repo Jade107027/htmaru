@@ -1,27 +1,34 @@
+// src/components/LoginForm.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+
+const idToEmailMap = {
+  admin: "admin@htmaru.com", // 아이디 → 이메일 변환
+};
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
+  const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await axios.post("http://localhost:5050/api/auth/login", {
-        email,
-        password,
-      });
+    const email = idToEmailMap[userId];
+    if (!email) {
+      alert("등록되지 않은 아이디입니다.");
+      return;
+    }
 
-      if (res.status === 200) {
-        alert("로그인 성공!");
-        navigate("/admin");
-      }
-    } catch (err) {
-      alert("로그인 실패: 이메일 또는 비밀번호가 잘못되었습니다.");
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("로그인 성공!");
+      navigate("/admin");
+    } catch (error) {
+      console.error("로그인 실패:", error.message);
+      alert("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
     }
   };
 
@@ -31,8 +38,8 @@ const LoginForm = () => {
         <label>아이디</label>
         <input
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
           required
           style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
         />

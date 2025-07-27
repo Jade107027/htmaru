@@ -18,7 +18,7 @@ const navigationLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: "010-5821-4668" },
+  { icon: Phone, text: "010-2250-6320" },
   { icon: LocationOn, text: "부산시 기장군 정관면 병산1길 74-18" },
 ];
 
@@ -32,8 +32,8 @@ const styles = {
   },
   container: {
     width: "100%",
-    mx: "auto",              // ✅ 가운데 정렬
-    px: { xs: 2, md: 4 },    // ✅ 좌우 여백 반응형
+    mx: "auto",             
+    px: { xs: 2, md: 4 },    
   },
   brandTitle: {
     fontSize: "1.5rem",
@@ -63,8 +63,10 @@ const styles = {
     color: "#aaa",
   },
   contactText: {
-    fontSize: "0.9rem",
-  },
+  fontSize: "0.9rem",
+  color: "#ccc", 
+  fontFamily: "Hahmlet, serif", 
+},
   snsIconButton: {
     backgroundColor: "#fff",
     color: "#000",
@@ -157,19 +159,19 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener"
                 sx={{
-      p: 0, // padding 제거
-      backgroundColor: "transparent",
-      "&:hover": {
-        color: "#transparent",
-      },
-    }}
+                  p: 0, 
+                  backgroundColor: "transparent",
+                  "&:hover": {
+                    color: "#transparent",
+                  },
+                }}
               >
                 <Instagram sx={{ fontSize: 20, color: "#ffffff" }} />
               </IconButton>
               <Typography
                 sx={{
-                  fontSize: "0.85rem",
-                  color: "#aaa",
+                  fontSize: "0.9rem",
+                  color: "#ccc",
                   mt: 1,
                   fontFamily: "Hahmlet, serif",
                   maxWidth: 200,

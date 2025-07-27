@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -15,6 +15,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase"; // Firebase 초기화한 파일에서 export한 auth 객체 import
 
 const logo = "/htmaru/images/logo3.png";
 
@@ -28,12 +30,32 @@ const navItems = [
 const Header = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAdminLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
+
   const toggleDrawer = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        alert("로그아웃 되었습니다.");
+        window.location.href = "/login";
+      })
+      .catch((err) => {
+        console.error("로그아웃 실패:", err);
+        alert("로그아웃 중 오류 발생");
+      });
   };
 
   return (
@@ -61,7 +83,7 @@ const Header = () => {
               sx={{
                 width: { xs: 75, md: 200 },
                 height: { xs: 30, md: 70 },
-                mt: { xs: 0, md: 2 }, // ✅ 로고 아래 공간 추가
+                mt: { xs: 0, md: 2 },
               }}
             />
           </Box>
@@ -86,6 +108,23 @@ const Header = () => {
                 {item.label}
               </Button>
             ))}
+
+            {/* 관리자 로그인 시 로그아웃 버튼 */}
+            {isAdminLoggedIn && (
+              <Button
+                onClick={handleLogout}
+                sx={{
+                  ml: 2,
+                  color: "#b91c1c",
+                  fontFamily: "Hahmlet, serif",
+                  fontWeight: "bold",
+                  fontSize: { xs: "14px", md: "16px" },
+                  "&:hover": { opacity: 0.7 },
+                }}
+              >
+                로그아웃
+              </Button>
+            )}
           </Box>
 
           {/* 모바일 메뉴 버튼 */}
@@ -105,7 +144,7 @@ const Header = () => {
         onClose={toggleDrawer}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "30%",
+            width: "40%",
             maxWidth: "80vw",
           },
         }}
@@ -118,6 +157,20 @@ const Header = () => {
               </ListItemButton>
             </ListItem>
           ))}
+
+          {/* 모바일 로그아웃 버튼 */}
+          {isAdminLoggedIn && (
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => {
+                  toggleDrawer();
+                  handleLogout();
+                }}
+              >
+                <ListItemText primary="로그아웃" />
+              </ListItemButton>
+            </ListItem>
+          )}
         </List>
       </Drawer>
     </AppBar>

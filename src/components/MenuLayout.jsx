@@ -89,13 +89,13 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
             >
               {["주말", "주중"].map((type, index) => {
                 const isWeekend = type === "주말";
+                const imageUrl = isWeekend
+                  ? "/htmaru/menu-images/menu1.jpg"
+                  : "/htmaru/menu-images/menu2.jpg";
                 const item = {
                   title: type,
                   desc:
                     "소갈빗살 / 토시살 / 우삼겹 / 육회 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
-                  time: isWeekend
-                    ? "토–일 11:00 - 21:00 (라스트오더 19:30)"
-                    : "수–금 11:30 - 21:00 (라스트오더 19:30)\n브레이크타임 15:30 - 16:30",
                   additional:
                     "36개월 미만 유아 성인 1명당 1인 무료\n초등학생 4학년 이하 1만원 할인",
                   price: isWeekend ? "33,800원" : "31,800원",
@@ -108,36 +108,50 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                     sx={{
                       width: "100%",
                       borderRadius: 3,
-                      px: { xs: 3, md: 4 },
-                      pt: 3,
-                      pb: 4,
                       bgcolor: "white",
                       display: "flex",
                       flexDirection: "column",
+                      overflow: "hidden",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      align="center"
+                    <Box
+                      component="img"
+                      src={imageUrl}
+                      alt={`${type} 이미지`}
                       sx={{
-                        fontWeight: "bold",
-                        mb: 4,
-                        color: "#b45309",
-                        fontSize: { xs: "23px", md: "32px" }, // 반응형 크기 지정
-                        fontFamily: "Hahmlet-Regular, Helvetica",
+                        width: "90%",
+                        height: "auto",
+                        maxHeight: 200,
+                        objectFit: "cover",
+                        borderRadius: 2,
+                        mx: "auto", // 가로 가운데 정렬
+                        mb: 0,      // 이미지 아래 여백
+                        mt: 1       // 이미지 위 여백
                       }}
-                    >
-                      {item.title}
-                    </Typography>
+                    />
 
-                    <Box sx={{ pl: { xs: 2, md: 6 } }}>
+                    <Box sx={{ px: { xs: 3, md: 4 }, pt: 3, pb: 4 }}>
+                      <Typography
+                        variant="h5"
+                        align="center"
+                        sx={{
+                          fontWeight: "bold",
+                          mb: 2,
+                          color: "#b45309",
+                          fontSize: { xs: "23px", md: "32px" },
+                          fontFamily: "Gowun Batang, serif",
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+
                       <Typography
                         sx={{
-                          fontSize: { xs: "17px", md: "21px" },
+                          fontSize: { xs: "15px", md: "21px" },
                           color: "#333",
                           fontFamily: "Hahmlet-Regular, Helvetica",
-                          lineHeight: { xs: 1.9, md: 1.8 },
-                          mb: 3,
+                          lineHeight: { xs: 1.7, md: 1.8 },
+                          mb: 2,
                           whiteSpace: "pre-line",
                           wordBreak: "keep-all",
                         }}
@@ -147,28 +161,11 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
 
                       <Typography
                         sx={{
-                          fontSize: { xs: "15px", md: "19px" },
-                          color: "#333",
-                          whiteSpace: "pre-line",
-                          wordBreak: "keep-all",
-                          lineHeight: { xs: 1.7, md: 1.6 },
-                          mb: 2,
-                        }}
-                      >
-                        {item.time}
-                      </Typography>
-
-                      {item.title === "주말" && (
-                        <Box sx={{ display: { xs: "none", md: "block" }, height: "24px" }} />
-                      )}
-
-                      <Typography
-                        sx={{
                           fontSize: { xs: "14px", md: "17px" },
                           color: "#777",
                           whiteSpace: "pre-line",
                           wordBreak: "keep-all",
-                          lineHeight: { xs: 1.6, md: 1.6 },
+                          lineHeight: { xs: 1.5, md: 1.6 },
                           mb: 2,
                         }}
                       >
@@ -176,16 +173,17 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                       </Typography>
 
                       <Typography
-                      sx={{
-                        fontSize: { xs: "20px", md: "24px" },
-                        fontWeight: "bold",
-                        color: "#b45309",
-                        mt: 2,
-                        textAlign: { xs: "center", md: "left" },
-                      }}
-                    >
-                      {item.price}
-                    </Typography>
+                        sx={{
+                          fontSize: { xs: "20px", md: "24px" },
+                          fontWeight: "bold",
+                          color: "#b45309",
+                          mt: 0,
+                          textAlign: { xs: "center", md: "left" },
+                          fontFamily: "Gowun Batang, serif",
+                        }}
+                      >
+                        {item.price}
+                      </Typography>
                     </Box>
                   </Paper>
                 );

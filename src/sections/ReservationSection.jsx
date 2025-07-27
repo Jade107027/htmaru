@@ -73,10 +73,10 @@ const ReservationSection = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    fontWeight: "bold",
-                    mb: 2,
-                    color: "#333",
-                    fontFamily: "Hahmlet-Regular, Helvetica",
+                    fontWeight: 700,
+                    mb: 3,
+                    color: "primary.dark", 
+                    fontFamily: "Gowun Batang, serif", 
                   }}
                 >
                   예약 안내
