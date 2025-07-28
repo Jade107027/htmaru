@@ -16,9 +16,9 @@ import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase"; // Firebase 초기화한 파일에서 export한 auth 객체 import
+import { auth } from "../firebase/firebase"; 
 
-const logo = "/htmaru/images/logo3.png";
+const logo = "../images/logo3.png";
 
 const navItems = [
   { label: "매장소개", path: "/about" },
@@ -64,7 +64,7 @@ const Header = () => {
       elevation={0}
       sx={{
         backgroundColor: "#fdf8f3",
-        height: { xs: 70, md: 120 },
+        height: { xs: 55, md: 90 },
       }}
     >
       <Box
@@ -81,9 +81,9 @@ const Header = () => {
               src={logo}
               alt="황토마루 로고"
               sx={{
-                width: { xs: 75, md: 200 },
-                height: { xs: 30, md: 70 },
-                mt: { xs: 0, md: 2 },
+                width: { xs: 75, md: 170 },
+                height: { xs: 30, md: 65 },
+                mt: { xs: 0, md: 1 },
               }}
             />
           </Box>
@@ -100,7 +100,7 @@ const Header = () => {
                   color: "#374151",
                   fontFamily: "Hahmlet, serif",
                   textDecoration: "none",
-                  fontSize: { xs: "14px", md: "16px" },
+                  fontSize: { xs: "14px", md: "20px" },
                   px: 1,
                   "&:hover": { opacity: 0.7 },
                 }}
@@ -144,7 +144,7 @@ const Header = () => {
         onClose={toggleDrawer}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "40%",
+            width: "35%",
             maxWidth: "80vw",
           },
         }}

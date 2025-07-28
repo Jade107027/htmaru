@@ -14,14 +14,13 @@ import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import { heroStyles } from "../styles/styles";
 
 const galleryImages = [
-  "/htmaru/menu-images/menu1.jpg",
-  "/htmaru/menu-images/menu2.jpg",
-  "/htmaru/menu-images/menu3.jpg",
-  "/htmaru/menu-images/menu4.jpg",
-  "/htmaru/menu-images/menu5.jpg",
-  "/htmaru/menu-images/menu6.jpg",
-  "/htmaru/menu-images/menu7.jpg",
-  "/htmaru/menu-images/menu8.jpg",
+  "../menu-images/menu1.jpg",
+  "../menu-images/menu2.jpg",
+  "../menu-images/menu3.jpg",
+  "../menu-images/menu4.jpg",
+  "../menu-images/menu5.jpg",
+  "../menu-images/menu6.jpg",
+  "../menu-images/menu7.jpg",
 ];
 
 const MenuLayout = ({ showAllMenuButton = false }) => {
@@ -52,7 +51,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
       <Typography
         variant="h4"
         align="center"
-        sx={{ mb: 3, fontWeight: "bold", color: "#1f1f1f" }}
+        sx={{ mb: 0, fontWeight: "bold", color: "#1f1f1f" }}
       >
         황토마루 메뉴
       </Typography>
@@ -67,7 +66,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
-          py: { xs: 6, md: 8 },
+          py: { xs: 4, md: 8 },
         }}
       >
         <Container maxWidth="xl">
@@ -76,7 +75,7 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
               variant="h4"
               component="h2"
               align="center"
-              sx={{ mb: 4, fontWeight: 600 }}
+              sx={{ mb: 2, fontWeight: 600 }}
             >
               프미리엄 고기뷔페 안내
             </Typography>
@@ -90,8 +89,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
               {["주말", "주중"].map((type, index) => {
                 const isWeekend = type === "주말";
                 const imageUrl = isWeekend
-                  ? "/htmaru/menu-images/menu1.jpg"
-                  : "/htmaru/menu-images/menu2.jpg";
+                  ? "../menu-images/menu1-1.jpg"
+                  : "../menu-images/menu1-2.jpg";
                 const item = {
                   title: type,
                   desc:
@@ -124,21 +123,21 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                         maxHeight: 200,
                         objectFit: "cover",
                         borderRadius: 2,
-                        mx: "auto", // 가로 가운데 정렬
-                        mb: 0,      // 이미지 아래 여백
-                        mt: 1       // 이미지 위 여백
+                        mx: "auto", 
+                        mb: 0,      
+                        mt: 1       
                       }}
                     />
 
                     <Box sx={{ px: { xs: 3, md: 4 }, pt: 3, pb: 4 }}>
                       <Typography
-                        variant="h5"
+                        variant="h6"
                         align="center"
                         sx={{
                           fontWeight: "bold",
                           mb: 2,
                           color: "#b45309",
-                          fontSize: { xs: "23px", md: "32px" },
+                          fontSize: { xs: "20px", md: "30px" },
                           fontFamily: "Gowun Batang, serif",
                         }}
                       >
@@ -151,12 +150,24 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                           color: "#333",
                           fontFamily: "Hahmlet-Regular, Helvetica",
                           lineHeight: { xs: 1.7, md: 1.8 },
-                          mb: 2,
+                          mb: 1,
                           whiteSpace: "pre-line",
                           wordBreak: "keep-all",
                         }}
                       >
                         {item.desc}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: { xs: "12px", md: "14px" },
+                          color: "#999",
+                          fontStyle: "italic",
+                          textAlign: "left",
+                          mb: 2,
+                        }}
+                      >
+                        ※ 재료 수급에 따라 메뉴 일부 변동될 수 있습니다.
                       </Typography>
 
                       <Typography
@@ -193,7 +204,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
         </Container>
       </Box>
 
-      <Box sx={{ mt: 10 }}>
+      <Box sx={{ mt: 1
+       }}>
         <Box
           sx={{
             position: "relative",

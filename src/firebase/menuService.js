@@ -1,20 +1,35 @@
-import { doc, getDoc, updateDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
 
 export const fetchMenuItem = async (type) => {
-  const docRef = doc(db, "menu", type); // 'weekend' or 'weekday'
-  const snapshot = await getDoc(docRef);
-  return snapshot.exists() ? snapshot.data() : null;
+  try {
+    const docRef = doc(db, "menu", type);
+    const snapshot = await getDoc(docRef);
+    return snapshot.exists() ? snapshot.data() : null;
+  } catch (error) {
+    console.error("메뉴 불러오기 실패:", error);
+    return null;
+  }
 };
 
 export const updateMenuItem = async (type, data) => {
-  const docRef = doc(db, "menu", type);
-  await updateDoc(docRef, data);
+  try {
+    const docRef = doc(db, "menu", type);
+    const snapshot = await getDoc(docRef);
 
-  // 기록 남기기
-  await addDoc(collection(db, "menu_history"), {
-    type,               // 주말 or 주중
-    data,               // 변경된 메뉴 데이터
-    updatedAt: serverTimestamp() // 서버 타임스탬프
-  });
+    if (snapshot.exists()) {
+      await updateDoc(docRef, data);
+    } else {
+      await setDoc(docRef, data); // 문서 없으면 새로 생성
+    }
+
+    await addDoc(collection(db, "menu_history"), {
+      type,
+      data,
+      updatedAt: serverTimestamp(),
+    });
+  } catch (error) {
+    console.error("메뉴 업데이트 실패:", error);
+    throw error;
+  }
 };

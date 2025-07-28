@@ -95,7 +95,7 @@ const Footer = () => {
           <Grid
             container
             spacing={{ xs: 4, md: 8 }}
-            justifyContent="space-between"  // ✅ 중앙 정렬 + 반응형 간격
+            justifyContent="space-between"  
           >
             {/* 브랜드 소개 */}
             <Grid item xs={12} md={3}>

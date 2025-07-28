@@ -10,7 +10,7 @@ import {
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const reservationInfo = [
-  "예약은 네이버로만 가능합니다. (3주 전부터 예약 가능)",
+  "예약은 네이버로만 가능합니다.\n(3주 전부터 예약 가능)",
   "10인 이상 단체 예약은 전화문의 부탁 드립니다.",
   "예약 확정 후 변경 및 취소는 예약일 하루 전까지 네이버로 가능합니다.",
   "주말 및 공휴일 예약은 조기 마감될 수 있으니 참고 부탁 드립니다.",
@@ -18,7 +18,16 @@ const reservationInfo = [
 
 const ReservationSection = () => {
   return (
-    <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
+    <Box
+      component="section"
+      sx={{
+        bgcolor: "#fdf8f3",
+        pt: { xs: 1, sm: 4 },
+        pb: { xs: 6, sm: 8 },
+        px: 2,
+        width: "100%",
+      }}
+    >
       <Container maxWidth="xl">
         <Box sx={{ position: "relative" }}>
           <Typography
@@ -42,12 +51,13 @@ const ReservationSection = () => {
               elevation={2}
               sx={{
                 width: { xs: "100%", md: "50%" },
+                height: "auto",
                 borderRadius: "16px",
                 overflow: "hidden",
                 flex: 1,
                 display: "flex",
-                minHeight: 420,
-                backgroundImage: "url(/htmaru/images/image2.jpg)",
+                minHeight: 300,
+                backgroundImage: "url(../images/image2.jpg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -62,7 +72,7 @@ const ReservationSection = () => {
                 p: 4,
                 overflow: "hidden",
                 flex: 1,
-                minHeight: 420,
+                minHeight: 300,
                 bgcolor: "white", 
                 display: "flex",
                 flexDirection: "column",
@@ -90,14 +100,21 @@ const ReservationSection = () => {
                       spacing={1.2}
                       alignItems="flex-start"
                     >
-                      <CheckCircleIcon fontSize="20px" sx={{ color: "#B45309" }} />
+                      <CheckCircleIcon
+                        sx={{
+                          color: "#B45309",
+                          fontSize: { xs: "15px", sm: "14px", md: "13px" },
+                          position: "relative",
+                          top: "4px", 
+                        }}
+                      />
                       <Typography
                         sx={{
                           color: "#333",
                           fontSize: { xs: 14, sm: 15 },
                           lineHeight: 1.6,
                           wordBreak: "keep-all",
-                          whiteSpace: "normal",
+                          whiteSpace: "pre-line",
                         }}
                       >
                         {info}

@@ -5,21 +5,27 @@ import { Box } from "@mui/material";
 
 const Frame = ({ children }) => {
   return (
-    <>
+    <Box
+      display="flex"
+      flexDirection="column"
+      minHeight="100vh"
+      sx={{ width: "100%", overflowX: "hidden" }}
+    >
       <Header />
+
+      {/* 메인 콘텐츠 영역 - 남은 공간을 채움 */}
       <Box
         component="main"
         sx={{
-          flex: 1,
-          width: "100%",
+          flexGrow: 1,
           py: 0,
-          overflowX: "hidden",
         }}
       >
         {children}
       </Box>
+
       <Footer />
-    </>
+    </Box>
   );
 };
 

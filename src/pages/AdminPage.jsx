@@ -43,6 +43,7 @@ const AdminPage = () => {
     try {
       await updateMenuItem(key, menuData[key]);
       alert(`${key === "weekend" ? "주말" : "주중"} 정보가 저장되었습니다.`);
+      window.location.reload(); 
     } catch (err) {
       console.error(err);
       alert("저장 실패");

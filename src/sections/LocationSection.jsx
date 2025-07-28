@@ -73,7 +73,16 @@ const LocationSection = () => {
   }, []);
 
   return (
-    <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
+    <Box
+      component="section"
+      sx={{
+        bgcolor: "#fdf8f3",
+        pt: { xs: 1, sm: 4 },  
+        pb: { xs: 6, sm: 8 },  
+        px: 2,                 
+        width: "100%",
+      }}
+    >
       <Container maxWidth="xl">
         <Typography
           variant="h4"
@@ -133,7 +142,7 @@ const LocationSection = () => {
               <Stack spacing={3}>
                 {locationData.sections.map((section, index) => (
                   <Stack key={index} direction="row" spacing={2}>
-                    <Box sx={{ mt: "2px" }}>
+                    <Box sx={{ position: "relative", top: "7px" }}>
                       {React.cloneElement(section.icon, { sx: { fontSize: 20 } })}
                     </Box>
                     <Box>
@@ -174,7 +183,7 @@ const LocationSection = () => {
               }}
             >
               <Button
-                fullWidth
+                
                 variant="contained"
                 href="https://map.naver.com/v5/entry/place/11605363"
                 target="_blank"

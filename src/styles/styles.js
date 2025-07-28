@@ -140,17 +140,17 @@ export const heroStyles = {
   section: {
   position: "relative",
   width: "100%",
-  minHeight: "100vh", // ✅ 화면 전체 높이 채움
-  backgroundImage: "url(/htmaru/images/image3.jpg)",
+  minHeight: "100vh", 
+  backgroundImage: "url('/images/image3.jpg')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   display: "flex",
-  alignItems: "center", // ✅ 중앙 정렬로 변경
+  alignItems: "center",
   justifyContent: "center",
-  px: { xs: 2, md: "208px" }, // ✅ 좌우 여백 반응형
-  pt: { xs: 10, md: "200px" }, // ✅ 위쪽 여백 반응형
+  px: { xs: 2, md: "208px" }, 
+  pt: { xs: 10, md: "200px" }, 
   boxSizing: "border-box",
-  flexDirection: "column", // 모바일 대응
+  flexDirection: "column", 
 },
   overlay: {
     position: "absolute",

@@ -8,15 +8,15 @@ const HeroSection = () => {
       sx={{
         position: "relative",
         width: "100vw",
-        height: "100dvh",
-        backgroundImage: "url(/htmaru/images/image3.jpg)", 
+        height: { xs: "90vh", md: "130vh" },
+        backgroundImage: "url(../images/image3.jpg)", 
         backgroundSize: "cover",
         backgroundPosition: "center",
         overflow: "hidden",
         display: "flex",
         alignItems: "flex-start", 
         justifyContent: { xs: "center", md: "flex-start" }, 
-        pt: { xs: "33vh", md: "33vh" }, 
+        pt: { xs: "25vh", md: "33vh" }, 
         pl: { xs: 0, md: 10 }, 
         pr: { xs: 0 },
         boxSizing: "border-box",
@@ -51,7 +51,7 @@ const HeroSection = () => {
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "32px", sm: "36px", md: "48px" },
+            fontSize: { xs: "32px", md: "60px" },
             fontWeight: "bold",
             color: "#fff",
             fontFamily: "Gowun Batang, serif",
@@ -65,7 +65,7 @@ const HeroSection = () => {
           variant="h6"
           sx={{
             whiteSpace: "pre-line",
-            fontSize: { xs: "16px", sm: "18px", md: "24px" },
+            fontSize: { xs: "16px", md: "30px" },
             fontWeight: 400,
             lineHeight: { xs: 1.6, md: 1.8 },
             color: "#fefefe",
@@ -92,10 +92,10 @@ const HeroSection = () => {
             sx={{
               backgroundColor: "white",
               color: "#a75e2b",
-              fontSize: { xs: "14px", md: "16px" },
+              fontSize: { xs: "14px", md: "25px" },
               fontWeight: "bold",
-              px: 3,
-              py: 1.5,
+              px: { xs: 3, md: 5 },
+              py: { xs: 1.5, md: 2 },
               fontFamily: "Hahmlet-Regular, Helvetica",
               borderRadius: "8px",
               textTransform: "none",
@@ -120,10 +120,10 @@ const HeroSection = () => {
             sx={{
               backgroundColor: "#a75e2b",
               color: "white",
-              fontSize: { xs: "14px", md: "16px" },
+              fontSize: { xs: "14px", md: "25px" },
               fontWeight: "bold",
-              px: 3,
-              py: 1.5,
+              px: { xs: 3, md: 5 },
+              py: { xs: 1.5, md: 2 },
               fontFamily: "Hahmlet-Regular, Helvetica",
               borderRadius: "8px",
               textTransform: "none",

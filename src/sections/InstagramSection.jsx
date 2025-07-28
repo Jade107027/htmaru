@@ -3,7 +3,16 @@ import { Box, Container, Paper, Typography } from "@mui/material";
 
 const InstagramSection = () => {
   return (
-    <Box component="section" py={8} sx={{ backgroundColor: "#fdf8f3", width: "100%" }}>
+    <Box
+      component="section"
+      sx={{
+        bgcolor: "#fdf8f3",
+        pt: { xs: 1, sm: 4 },
+        pb: { xs: 6, sm: 8 },
+        px: 2,
+        width: "100%",
+      }}
+    >
       <Container maxWidth="xl">
         <Typography variant="h4" align="center" sx={{ mb: 4, fontWeight: 600, color: "#333" }}>
           인스타그램

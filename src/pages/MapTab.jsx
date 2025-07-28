@@ -5,9 +5,10 @@ const MapTab = () => {
   return (
     <Box
       component="section"
-      py={8}
       sx={{
-        backgroundColor: "#fdf8f3",
+        bgcolor: "#fdf8f3",
+        pt: { xs: 1, sm: 4 }, 
+        pb: { xs: 6, sm: 8 },
         width: "100vw",
         position: "relative",
         left: "50%",
@@ -29,7 +30,7 @@ const MapTab = () => {
 
         <Box
           component="img"
-          src="/htmaru/images/htmaru_map2.png"
+          src="../images/htmaru_map2.png"
           alt="황토마루 내부 지도"
           sx={{
             width: "100%",
