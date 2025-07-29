@@ -19,7 +19,7 @@ const navigationLinks = [
 
 const contactInfo = [
   { icon: Phone, text: "010-2250-6320" },
-  { icon: LocationOn, text: "부산시 기장군 정관면 병산1길 74-18" },
+  { icon: LocationOn, text: "부산시 기장군 정관읍 병산1길 74-18" },
 ];
 
 const styles = {

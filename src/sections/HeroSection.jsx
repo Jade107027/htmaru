@@ -7,18 +7,17 @@ const HeroSection = () => {
     <Box
       sx={{
         position: "relative",
-        width: "100vw",
-        height: { xs: "90vh", md: "130vh" },
-        backgroundImage: "url(../images/image3.jpg)", 
+        width: "100%",
+        minHeight: { xs: 700, md: 1100 },
+        backgroundImage: "url(../images/image3.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         overflow: "hidden",
         display: "flex",
-        alignItems: "flex-start", 
-        justifyContent: { xs: "center", md: "flex-start" }, 
-        pt: { xs: "25vh", md: "33vh" }, 
-        pl: { xs: 0, md: 10 }, 
-        pr: { xs: 0 },
+        alignItems: "flex-start",
+        justifyContent: { xs: "center", md: "flex-start" },
+        pt: { xs: 20, md: 40 },
+        pl: { xs: 0, md: 10 },
         boxSizing: "border-box",
       }}
     >

@@ -60,13 +60,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
         component="section"
         sx={{
           backgroundColor: "#fdf8f3",
-          width: "100vw",
-          position: "relative",
-          left: "50%",
-          right: "50%",
-          marginLeft: "-50vw",
-          marginRight: "-50vw",
           py: { xs: 4, md: 8 },
+          width: "100%",
         }}
       >
         <Container maxWidth="xl">

@@ -62,7 +62,7 @@ const AboutPage = () => {
                   borderRadius: 3,
                   boxShadow: 2,
                   objectFit: "cover",
-      height: { xs: "auto", md:400 }
+                  height: { xs: "auto", md:400 }
                 }}
               />
 
