@@ -81,6 +81,100 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
               alignItems="stretch"
               sx={{ justifyContent: "center" }}
             >
+              {(() => {
+  const imageUrl = "../menu-images/menu1-1.jpg";
+
+  const item = {
+    desc:
+      "소갈빗살 / 부채살 / 우삼겹 / 새우, 관자 / 한돈목살 / 한돈삼겹살\n채소류 / 샐러드류 / 디저트류 / 과일류\n쫄면 / 된장찌개 / 김치찌개 / 밥",
+    price: "35,800원",
+  };
+
+  return (
+    <Paper
+      elevation={2}
+      sx={{
+        width: "100%",
+        borderRadius: 3,
+        bgcolor: "white",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
+    >
+      <Box
+        component="img"
+        src={imageUrl}
+        alt="메뉴 이미지"
+        sx={{
+          width: { xs: 220, sm: 300, md: 400 },
+          height: { xs: 140, sm: 200, md: 280 },
+          objectFit: "cover",
+          borderRadius: 2,
+          mx: "auto",
+          display: "block",
+          mb: 0,
+          mt: 1,
+        }}
+      />
+
+      <Box sx={{ px: { xs: 3, md: 4 }, pt: 3, pb: 4 }}>
+        <Typography
+          sx={{
+            fontSize: { xs: "15px", md: "21px" },
+            color: "#333",
+            fontFamily: "Hahmlet-Regular, Helvetica",
+            lineHeight: { xs: 1.7, md: 1.8 },
+            mb: 1,
+            whiteSpace: "pre-line",
+            wordBreak: "keep-all",
+            textAlign: "center",
+          }}
+        >
+          {item.desc}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: { xs: "12px", md: "14px" },
+            color: "#999",
+            fontStyle: "italic",
+            textAlign: "center",
+            mb: 2,
+          }}
+        >
+          ※ 재료 수급에 따라 메뉴 일부 변동될 수 있습니다.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: { xs: "20px", md: "24px" },
+            fontWeight: "bold",
+            color: "#b45309",
+            mt: 0,
+            textAlign: "center",
+            fontFamily: "Gowun Batang, serif",
+          }}
+        >
+          {item.price}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: { xs: "16px", md: "19px" },
+            color: "#b45309",
+            mt: 1.2,
+            fontWeight: 500,
+            textAlign: "center",
+          }}
+        >
+          초등 4학년 이하 15,000원 / 미취학 아동 10,000원
+        </Typography>
+      </Box>
+    </Paper>
+  );
+})()}
+              {/* 
               {["주말", "주중"].map((type, index) => {
                 const isWeekend = type === "주말";
                 const imageUrl = isWeekend
@@ -193,7 +287,8 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                     </Box>
                   </Paper>
                 );
-              })}
+              })} */}
+              
             </Stack>
           </Box>
         </Container>
