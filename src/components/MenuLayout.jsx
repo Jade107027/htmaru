@@ -160,17 +160,26 @@ const MenuLayout = ({ showAllMenuButton = false }) => {
                       </Typography>
 
                       <Typography
-                        sx={{
-                          fontSize: { xs: "16px", md: "19px" },
-                          color: "#b45309",
-                          mt: 1.2,
-                          fontWeight: 500,
-                          textAlign: "center",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        초등 4학년 이하 15,000원 / 미취학 아동 10,000원
-                      </Typography>
+                      sx={{
+                        fontSize: { xs: "16px", md: "19px" },
+                        color: "#b45309",
+                        mt: 1.2,
+                        fontWeight: 500,
+                        textAlign: "center",
+                        lineHeight: 1.5,
+                        whiteSpace: "normal",       
+                        overflowWrap: "anywhere",    
+                        wordBreak: "keep-all",       
+                      }}
+                    >
+                      초등 4학년 이하 15,000원{" "}
+                      <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>
+                        {" / "}
+                      </Box>
+                      <Box component="span" sx={{ display: { xs: "block", sm: "inline" } }}>
+                        미취학 아동 10,000원
+                      </Box>
+                    </Typography>
                     </Box>
                   </Paper>
                 );
