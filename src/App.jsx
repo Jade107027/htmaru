@@ -18,7 +18,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InstagramSection from "./sections/InstagramSection";
 
-const isSiteRestricted = true;
+const isSiteRestricted = false;
 
 function App() {
 
